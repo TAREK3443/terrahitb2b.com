@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+  if(location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== ''){
+    location.replace('https://' + location.hostname + location.pathname + location.search);
+  }
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TerraHit LLC — Bridging Global Markets</title>
+<link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bricolage+Grotesque:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1C2B49; --navy-deep:#0F1E36;
+    --green:#2D7C31; --green-light:#3A9E40;
+    --white:#FFFFFF; --muted:#1C2B49;
+    --border:rgba(28,43,73,0.12); --border-dark:rgba(28,43,73,0.2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-hyphens:none;hyphens:none;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Bricolage Grotesque',sans-serif;background:#F8F9FB;color:var(--navy);overflow-x:hidden;}
+
+  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+  .nav-brand{font-family:'Montserrat',sans-serif;font-size:3.2rem;font-weight:700;letter-spacing:0.02em;line-height:1;}
+  .nav-brand-wrap{display:inline-flex;flex-direction:column;align-items:center;line-height:1;}
+  .nav-llc{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1em;letter-spacing:0.4em;letter-spacing:0.4em;display:block;text-align:center;margin-top:2px;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{font-size:1.2rem;font-weight:300;color:#1C2B49;text-decoration:none;transition:color 0.2s;}
+  nav ul a:hover{color:var(--navy);}
+  .nav-right{display:flex;align-items:center;gap:1rem;}
+  .nav-cta{font-size:1.2rem;font-weight:400;color:var(--white);background:var(--green);padding:0.85rem 2rem;text-decoration:none;transition:background 0.2s;}
+  .nav-cta:hover{background:var(--green-light);}
+  .lang-toggle{display:flex;align-items:center;border:1px solid rgba(28,43,73,0.25);border-radius:2px;overflow:hidden;}
+  .lang-btn{font-size:1rem;font-weight:400;letter-spacing:0.1em;padding:0.6rem 1rem;background:transparent;color:#1C2B49;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;}
+  .lang-btn.active{background:var(--green);color:var(--white);}
+  .lang-btn:hover:not(.active){color:var(--navy);}
+
+  /* hamburger mobile */
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+  .nav-hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:all 0.3s;}
+  .nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+  .nav-mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:rgba(255,255,255,0.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;flex-direction:column;gap:1.2rem;}
+  .nav-mobile-menu.open{display:flex;}
+  .nav-mobile-menu a{font-size:1rem;font-weight:300;color:#1C2B49;text-decoration:none;padding:0.4rem 0;border-bottom:1px solid var(--border);}
+  .nav-mobile-menu a:last-child{border-bottom:none;}
+  .nav-mobile-menu .nav-cta{text-align:center;margin-top:0.5rem;}
+  .nav-mobile-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:0.5rem;}
+
+  /* ── HERO ── */
+  #hero{min-height:100vh;display:flex;flex-direction:row;align-items:center;justify-content:space-between;position:relative;overflow:hidden;padding:7rem 4rem;background:#F8F9FB;}
+  .hero-content{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;}
+  .logo-circle{width:480px;height:auto;flex-shrink:0;z-index:2;}
+  .logo-circle img{width:100%;height:auto;display:block;}
+  .hero-grid{display:none;}
+  .hero-tag{font-size:2rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);margin-bottom:0.8rem;white-space:nowrap;}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,4rem);font-weight:300;line-height:1.1;color:var(--navy);max-width:100%;text-align:left;white-space:nowrap;}
+  h1 em{font-style:italic;color:var(--green-light);}
+  .hero-desc{margin-top:2rem;font-size:1rem;font-weight:300;line-height:1.8;color:#1C2B49;max-width:460px;}
+  .hero-actions{margin-top:3rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;}
+  .btn-primary{display:inline-block;padding:0.9rem 2.5rem;background:var(--green);color:var(--white);font-size:0.85rem;font-weight:400;text-decoration:none;transition:background 0.2s;}
+  .btn-primary:hover{background:var(--green-light);}
+  .btn-ghost{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:300;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+  .btn-ghost:hover{color:var(--white);}
+  .btn-ghost svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+  .hero-metrics{margin-top:4rem;display:flex;gap:3rem;border-top:1px solid var(--border);padding-top:2rem;flex-wrap:wrap;}
+  .metric-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--navy);}
+  .metric-label{font-size:0.7rem;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:rgba(28,43,73,0.45);margin-top:0.2rem;}
+
+  /* ── SECTIONS ── */
+  .section-eyebrow{font-size:2rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);margin-bottom:0.8rem;}
+  h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:300;line-height:1.1;color:var(--navy);text-align:left;}
+  h2 em{font-style:italic;color:var(--green-light);}
+  .accent-bar{display:none;}
+
+  /* ── ABOUT ── */
+  #about{padding:7rem 4rem;background:#EEF2F7;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .about-inner{display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:100%;gap:4rem;}
+  .about-text p{font-size:0.97rem;font-weight:300;line-height:1.9;color:#1C2B49;margin-top:1.5rem;}
+  .about-text p+p{margin-top:1rem;}
+  .about-visual{display:flex;align-items:center;justify-content:center;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  .about-visual .logo-circle{animation:float 6s ease-in-out infinite;}
+  
+
+  /* ── SERVICES ── */
+  #services{padding:7rem 4rem;background:#F8F9FB;}
+  .services-wrap{max-width:100%;margin:0;}
+  .services-header{max-width:580px;margin-bottom:4rem;text-align:left;}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(28,43,73,0.12);border:1px solid rgba(28,43,73,0.12);}
+  .service-card{background:#F8F9FB;padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background 0.3s;}
+  .service-card:hover{background:#EEF2F7;}
+  .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+  .service-card:hover::after{transform:scaleX(1);}
+  .service-num{font-size:0.72rem;font-weight:300;letter-spacing:0.15em;color:var(--green-light);margin-bottom:1.2rem;}
+  .service-icon{width:40px;height:40px;margin-bottom:1.2rem;stroke:var(--navy);fill:none;stroke-width:1.5;}
+  .service-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:0.8rem;}
+  .service-desc{font-size:0.86rem;font-weight:300;line-height:1.8;color:#1C2B49;}
+
+  /* ── CORRIDORS ── */
+  #corridors{padding:7rem 4rem;background:#EEF2F7;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .corridors-inner{max-width:100%;margin:0;}
+  .corridors-header{max-width:580px;margin-bottom:4rem;text-align:left;}
+  .corridors-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+  .corridor-item{display:flex;align-items:flex-start;gap:1.5rem;padding:2rem;border:1px solid var(--border);transition:border-color 0.3s,background 0.3s;}
+  .corridor-item:hover{border-color:var(--green);background:rgba(45,124,49,0.06);}
+  .corridor-flag{font-size:0.72rem;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);border:1px solid rgba(45,124,49,0.4);padding:4px 10px;height:fit-content;white-space:nowrap;}
+  .corridor-detail h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--navy);margin-bottom:0.5rem;}
+  .corridor-detail p{font-size:0.85rem;font-weight:300;line-height:1.75;color:#1C2B49;}
+
+  /* ── PROCESS ── */
+  #process{padding:7rem 4rem;background:#F8F9FB;}
+  .process-wrap{max-width:100%;margin:0;}
+  .process-header{max-width:580px;margin-bottom:4rem;text-align:left;}
+  .process-step{display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:start;padding:2.5rem 0;border-bottom:1px solid var(--border);}
+  .process-step:last-child{border-bottom:none;}
+  .step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(28,43,73,0.12);line-height:1;}
+  .step-content h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:0.4rem;}
+  .step-content p{font-size:0.88rem;font-weight:300;line-height:1.8;color:#1C2B49;}
+
+  /* ── CONTACT ── */
+  #contact{padding:7rem 4rem;background:#EEF2F7;}
+  .contact-inner{max-width:100%;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+  .contact-info h2{margin-bottom:1.5rem;}
+  .contact-info p{font-size:0.95rem;font-weight:300;line-height:1.85;color:#1C2B49;margin-bottom:2rem;}
+  .contact-detail{display:flex;flex-direction:column;gap:0.8rem;}
+  .contact-row{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;border:1px solid rgba(28,43,73,0.15);background:#fff;transition:border-color 0.2s;}
+  .contact-row:hover{border-color:var(--green);}
+  .contact-row svg{width:18px;height:18px;stroke:var(--green-light);fill:none;stroke-width:1.5;flex-shrink:0;margin-top:2px;}
+  .contact-row span{font-size:0.83rem;color:#1C2B49;font-weight:300;}
+  .contact-row strong{font-size:0.88rem;color:var(--navy);font-weight:500;display:block;}
+  .contact-form-wrap{background:#fff;border:1px solid rgba(28,43,73,0.15);padding:2.5rem;}
+  .form-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin-bottom:1.5rem;}
+  .contact-form{display:flex;flex-direction:column;gap:1rem;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;}
+  .form-group label{font-size:0.72rem;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);}
+  .form-group input,.form-group select,.form-group textarea{background:#F8F9FB;border:1px solid rgba(28,43,73,0.2);padding:0.8rem 1rem;color:var(--navy);font-size:0.88rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:300;transition:border-color 0.2s;outline:none;resize:none;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(28,43,73,0.35);}
+  .form-group select{color:#1C2B49;}
+  .form-group select option{background:#fff;color:var(--navy);}
+  .form-group textarea{height:90px;}
+  .form-submit{margin-top:0.5rem;padding:1rem 2rem;width:100%;background:var(--green);color:var(--white);font-family:'Bricolage Grotesque',sans-serif;font-size:0.88rem;font-weight:400;border:none;cursor:pointer;transition:background 0.2s;}
+  .form-submit:hover{background:var(--green-light);}
+
+  /* ── FOOTER ── */
+  footer{padding:1.8rem 4rem;border-top:1px solid rgba(28,43,73,0.15);background:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  footer img{height:40px;width:40px;border-radius:50%;object-fit:cover;}
+  .footer-tagline{font-size:0.78rem;font-weight:300;letter-spacing:0.15em;color:rgba(255,255,255,0.3);}
+  .footer-copy{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.25);}
+
+  .desktop-only { display:block; }
+
+
+  /* ── RTL ARABE ── */
+  [lang="ar"] body { font-family: 'Cairo', sans-serif; direction: rtl; text-align: right; }
+  [lang="ar"] nav { direction: rtl; }
+  [lang="ar"] nav ul { flex-direction: row-reverse; }
+  [lang="ar"] .nav-right { flex-direction: row-reverse; }
+  [lang="ar"] .nav-brand-wrap { direction: rtl; }
+  [lang="ar"] #hero { direction: rtl; }
+  [lang="ar"] .hero-content { align-items: flex-end; }
+  [lang="ar"] .hero-actions { flex-direction: row-reverse; }
+  [lang="ar"] .hero-metrics { flex-direction: row-reverse; }
+  [lang="ar"] .about-inner { direction: rtl; }
+  [lang="ar"] .about-text p { text-align: right; }
+  [lang="ar"] .services-grid { direction: rtl; }
+  [lang="ar"] .corridor-item { flex-direction: row-reverse; }
+  [lang="ar"] .process-step { direction: rtl; }
+  [lang="ar"] .contact-inner { direction: rtl; }
+  [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3,
+  [lang="ar"] p, [lang="ar"] .hero-desc,
+  [lang="ar"] .service-title, [lang="ar"] .service-desc,
+  [lang="ar"] .corridor-detail h3, [lang="ar"] .corridor-detail p,
+  [lang="ar"] .step-content h3, [lang="ar"] .step-content p,
+  [lang="ar"] .section-eyebrow, [lang="ar"] .hero-tag {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* ── FADE IN ── */
+  .fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+
+  /* ════════════════════════════════
+     RESPONSIVE MOBILE
+  ════════════════════════════════ */
+  /* ══════════════════════════════
+     MOBILE — 768px et moins
+  ══════════════════════════════ */
+  @media (max-width: 1200px) {
+
+    .desktop-only { display:none !important; }
+
+    /* ── Nav ── */
+    nav { padding:0.9rem 1.2rem; }
+    nav ul { display:none; }
+    .nav-right { display:none; }
+    .nav-hamburger { display:flex; }
+    .nav-brand { font-size:1.2rem; }
+    .nav-llc { font-size:0.7em; }
+
+    /* ── Menu mobile plein écran ── */
+    .nav-mobile-menu {
+      top:56px; padding:1.2rem 1.5rem; gap:0;
+    }
+    .nav-mobile-menu a {
+      font-size:1.1rem; padding:1rem 0;
+      border-bottom:1px solid var(--border);
+    }
+    .nav-mobile-bottom {
+      flex-direction:column; gap:1rem;
+      align-items:stretch; margin-top:1rem;
+    }
+    .nav-mobile-bottom .lang-toggle {
+      justify-content:center;
+    }
+    .nav-mobile-bottom .lang-btn { flex:1; padding:0.7rem; font-size:0.85rem; }
+    .nav-mobile-bottom .nav-cta {
+      text-align:center; padding:0.9rem; font-size:0.9rem;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      flex-direction:column;
+      padding:5.5rem 1.2rem 2.5rem;
+      gap:1.5rem; min-height:auto;
+      justify-content:center;
+      align-items:center;
+    }
+    .hero-logo-mobile {
+      display:block !important;
+      width:260px;
+      height:auto;
+      margin:0 auto;
+    }
+    .hero-content { align-items:flex-start; width:100%; }
+    .about-logo-bg {
+      width:260px; height:260px;
+      top:10%; right:50%;
+      transform:translateX(50%);
+      opacity:0.08;
+    }
+    .hero-content { width:100%; }
+    .hero-tag { font-size:0.68rem; margin-bottom:0.8rem; }
+    h1 { font-size:2.4rem; line-height:1.1; }
+    h1 br { display:none; }
+    .hero-desc { font-size:0.9rem; margin-top:1rem; max-width:100%; }
+    .hero-actions {
+      flex-direction:column; align-items:stretch;
+      gap:0.8rem; margin-top:1.5rem;
+    }
+    .btn-primary { text-align:center; padding:1rem; font-size:0.9rem; }
+    .btn-ghost { justify-content:center; }
+    .hero-metrics {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:1rem; margin-top:2rem; padding-top:1.5rem;
+    }
+    .metric-val { font-size:1.6rem; }
+    .metric-label { font-size:0.6rem; }
+
+    /* ── About ── */
+    #about { padding:3rem 1.2rem; }
+    .about-inner { grid-template-columns:1fr; gap:1.5rem; }
+    .about-visual { order:-1; justify-content:flex-end; }
+    .logo-circle {
+      width:100%;
+      max-width:280px;
+      height:auto;
+      margin:0 auto;
+      flex-shrink:0;
+    }
+    .about-visual { justify-content:center; }
+    
+    h2 { font-size:2rem; }
+    h2 br { display:none; }
+    .about-text p { font-size:0.9rem; margin-top:1rem; }
+    .accent-bar { margin:0.8rem 0; }
+
+    /* ── Services ── */
+    #services { padding:3rem 1.2rem; }
+    .services-header { margin-bottom:2rem; }
+    .services-grid { grid-template-columns:1fr; }
+    .service-card { padding:1.8rem 1.2rem; }
+    .service-title { font-size:1.3rem; }
+    .service-desc { font-size:0.85rem; }
+
+    /* ── Corridors ── */
+    #corridors { padding:3rem 1.2rem; }
+    .corridors-header { margin-bottom:2rem; }
+    .corridors-list { grid-template-columns:1fr; gap:1rem; }
+    .corridor-item { padding:1.5rem 1rem; gap:1rem; }
+    .corridor-detail h3 { font-size:1.2rem; }
+    .corridor-detail p { font-size:0.83rem; }
+
+    /* ── Process ── */
+    #process { padding:3rem 1.2rem; }
+    .process-header { margin-bottom:2rem; }
+    .process-step {
+      grid-template-columns:40px 1fr;
+      gap:0.8rem; padding:1.8rem 0;
+    }
+    .step-num { font-size:2rem; }
+    .step-content h3 { font-size:1.2rem; }
+    .step-content p { font-size:0.85rem; }
+
+    /* ── Contact ── */
+    #contact { padding:3rem 1.2rem; }
+    .contact-inner { grid-template-columns:1fr; gap:2rem; }
+    .contact-info p { font-size:0.88rem; }
+    .form-row { grid-template-columns:1fr; }
+    .contact-form-wrap { padding:1.5rem 1.2rem; }
+    .form-title { font-size:1.3rem; margin-bottom:1rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea { font-size:1rem; padding:0.9rem; }
+    .form-submit { padding:1rem; font-size:0.9rem; }
+
+    /* ── Footer ── */
+    footer {
+      flex-direction:column;
+      padding:1.5rem 1.2rem;
+      text-align:center; gap:0.6rem;
+    }
+    footer img { margin:0 auto; }
+
+    /* ── Section eyebrow ── */
+    .section-eyebrow { font-size:0.68rem; }
+  }
+
+  /* ══════════════════════════════
+     TRÈS PETIT — 380px et moins
+  ══════════════════════════════ */
+  @media (max-width: 380px) {
+    h1 { font-size:2rem; }
+    .hero-metrics { grid-template-columns:1fr; }
+    
+    .about-visual 
+    nav { padding:0.8rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="#" style="text-decoration:none;"><span class="nav-brand-wrap"><span class="nav-brand"><span style="color:var(--navy)">TERRA</span><span style="color:var(--green)">HIT</span></span><span class="nav-llc" style="color:var(--navy)">LLC</span></span></a>
+  </div>
+  <ul>
+    <li><a href="#about" data-fr="À propos" data-en="About" data-ar="من نحن">About</a></li>
+    <li><a href="#services" data-fr="Services" data-en="Services" data-ar="خدماتنا">Services</a></li>
+    <li><a href="#corridors" data-fr="Corridors" data-en="Corridors" data-ar="الممرات">Corridors</a></li>
+    <li><a href="#process" data-fr="Processus" data-en="Process" data-ar="المنهجية">Process</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+    </div>
+    <a href="#contact" class="nav-cta" data-fr="Nous contacter" data-en="Contact us" data-ar="اتصل بنا">Contact us</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MENU MOBILE -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" data-fr="À propos" data-en="About" data-ar="من نحن" onclick="toggleMenu()">About</a>
+  <a href="#services" data-fr="Services" data-en="Services" data-ar="خدماتنا" onclick="toggleMenu()">Services</a>
+  <a href="#corridors" data-fr="Corridors" data-en="Corridors" data-ar="الممرات" onclick="toggleMenu()">Corridors</a>
+  <a href="#process" data-fr="Processus" data-en="Process" data-ar="المنهجية" onclick="toggleMenu()">Process</a>
+  <div class="nav-mobile-bottom">
+    <div class="lang-toggle">
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+    </div>
+    <a href="#contact" class="nav-cta" data-fr="Nous contacter" data-en="Contact us" data-ar="اتصل بنا" onclick="toggleMenu()">Contact us</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <img src="logo_terrahit_circulaire.png" class="hero-logo-mobile" alt="TerraHit LLC" style="display:none;">
+  <div class="hero-content">
+    <div class="hero-tag" data-fr="Passerelle vers les marchés mondiaux" data-en="Bridging Global Markets" data-ar="جسر الأسواق العالمية">Bridging Global Markets</div>
+    <h1>
+      <span data-fr="Commerce mondial," data-en="Global trade," data-ar="التجارة العالمية،">Global trade,</span> <em><span data-fr="expertise locale." data-en="local expertise." data-ar="خبرة محلية.">local expertise.</span></em>
+    </h1>
+    <p class="hero-desc" data-fr="TerraHit LLC orchestre vos flux commerciaux entre l'Algérie, l'Europe et les marchés internationaux — avec rigueur documentaire, maîtrise logistique et vision stratégique." data-en="TerraHit LLC coordinates your trade flows between Algeria, Europe and international markets — with documentary precision, logistics expertise and strategic vision." data-ar="تنسّق TerraHit LLC تدفقاتك التجارية بين الجزائر وأوروبا والأسواق الدولية، بدقة وثائقية وخبرة لوجستية ورؤية استراتيجية.">
+      TerraHit LLC coordinates your trade flows between Algeria, Europe and international markets — with documentary precision, logistics expertise and strategic vision.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary" data-fr="Démarrer une opération" data-en="Start an operation" data-ar="ابدأ عملية">Start an operation</a>
+      <a href="#services" class="btn-ghost">
+        <span data-fr="Découvrir nos services" data-en="Discover our services" data-ar="اكتشف خدماتنا">Discover our services</span>
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-metrics">
+      <div><div class="metric-val">B2B</div><div class="metric-label" data-fr="Marché cible" data-en="Target market" data-ar="السوق المستهدف">Target market</div></div>
+      <div><div class="metric-val">DZ·FR·US</div><div class="metric-label" data-fr="Pays d'opération" data-en="Operating countries" data-ar="دول العمليات">Operating countries</div></div>
+      <div><div class="metric-val">CFR</div><div class="metric-label" data-fr="Incoterms maîtrisés" data-en="Incoterms mastered" data-ar="إنكوترمز متقنة">Incoterms mastered</div></div>
+      <div><div class="metric-val">100%</div><div class="metric-label" data-fr="Conformité documentaire" data-en="Documentary compliance" data-ar="امتثال وثائقي">Documentary compliance</div></div>
+    </div>
+  </div>
+  <div class="logo-circle desktop-only"><img src="logo_terrahit_circulaire.png" alt="TerraHit LLC"></div>
+</section>
+
+<div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
+
+<div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text fade-in">
+      <div class="section-eyebrow" data-fr="Qui sommes-nous" data-en="Who we are" data-ar="من نحن">Who we are</div>
+      <h2><span data-fr="Un opérateur" data-en="A tricontinental" data-ar="مشغّل">A tricontinental</span> <em><span data-fr="tricontinental" data-en="operator" data-ar="ثلاثي القارات">operator</span></em></h2>
+      <div class="accent-bar"></div>
+      <p data-fr="TerraHit LLC est une société américaine spécialisée dans la coordination internationale des flux commerciaux, la gestion logistique et les services d'intermédiation entre producteurs et importateurs." data-en="TerraHit LLC is an American company specializing in the international coordination of trade flows, logistics management and intermediation services between producers and importers." data-ar="شركة TerraHit LLC شركة أمريكية متخصصة في التنسيق الدولي لتدفقات التجارة وإدارة الخدمات اللوجستية وخدمات الوساطة بين المنتجين والمستوردين.">TerraHit LLC is an American company specializing in the international coordination of trade flows, logistics management and intermediation services between producers and importers.</p>
+      <p data-fr="Nous intervenons comme prestataire de services international : coordination logistique, supervision douanière, et pilotage commercial — assurant une séparation claire entre entités exportatrices, importatrices et opérateur de services." data-en="We act as an international service provider: logistics coordination, customs supervision, and commercial management — ensuring a clear separation between exporting entities, importing entities and the service operator." data-ar="نعمل كمزود خدمات دولي: التنسيق اللوجستي، الإشراف الجمركي، وإدارة الأعمال — مع ضمان فصل واضح بين الكيانات المصدِّرة والمستوردة ومشغل الخدمة.">We act as an international service provider: logistics coordination, customs supervision, and commercial management — ensuring a clear separation between exporting entities, importing entities and the service operator.</p>
+      <p data-fr="Grâce à un réseau d'entités opérationnelles en Europe et en Algérie, nous assurons la continuité des flux commerciaux sur les corridors Méditerranée–Europe." data-en="Through a network of operational entities in Europe and Algeria, we ensure the continuity of trade flows on the Mediterranean–Europe corridors." data-ar="من خلال شبكة من الكيانات التشغيلية في أوروبا والجزائر، نضمن استمرارية تدفقات التجارة على ممرات البحر الأبيض المتوسط وأوروبا.">Through a network of operational entities in Europe and Algeria, we ensure the continuity of trade flows on the Mediterranean–Europe corridors.</p>
+    </div>
+    <div class="about-visual fade-in desktop-only">
+      <div class="logo-circle"><img src="logo_terrahit_circulaire.png" alt="TerraHit LLC"></div>
+    </div>
+  </div>
+</section>
+
+<div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-wrap">
+    <div class="services-header fade-in">
+      <div class="section-eyebrow" data-fr="Ce que nous faisons" data-en="What we do" data-ar="ما نقدمه">What we do</div>
+      <h2><span data-fr="Nos" data-en="Our" data-ar="خدماتنا">Our</span> <em><span data-fr="services" data-en="services" data-ar="">services</span></em></h2>
+    </div>
+    <div class="services-grid fade-in">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <svg class="service-icon" viewBox="0 0 44 44"><path d="M6 34l8-12 8 6 8-16 8 10"/><rect x="4" y="6" width="36" height="30" rx="2"/></svg>
+        <div class="service-title" data-fr="Coordination logistique" data-en="Logistics coordination" data-ar="التنسيق اللوجستي">Logistics coordination</div>
+        <p class="service-desc" data-fr="Supervision des opérations de transport maritime et terrestre, gestion des transitaires et suivi des cargaisons sur les routes Méditerranée–Europe." data-en="Supervision of maritime and land transport operations, freight forwarder management and cargo tracking on Mediterranean–Europe routes." data-ar="الإشراف على عمليات النقل البحري والبري، وإدارة شركات الشحن وتتبع البضائع على مسارات المتوسط-أوروبا.">Supervision of maritime and land transport operations, freight forwarder management and cargo tracking on Mediterranean–Europe routes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <svg class="service-icon" viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="20" rx="2"/><path d="M14 36h16M22 28v8M14 18h16M14 23h8"/></svg>
+        <div class="service-title" data-fr="Documentation commerciale" data-en="Commercial documentation" data-ar="التوثيق التجاري">Commercial documentation</div>
+        <p class="service-desc" data-fr="Élaboration et contrôle des factures commerciales, certificats d'origine, connaissements et documents douaniers selon les standards internationaux." data-en="Preparation and verification of commercial invoices, certificates of origin, bills of lading and customs documents according to international standards." data-ar="إعداد ومراجعة الفواتير التجارية وشهادات المنشأ وبوالص الشحن والوثائق الجمركية وفق المعايير الدولية.">Preparation and verification of commercial invoices, certificates of origin, bills of lading and customs documents according to international standards.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <svg class="service-icon" viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><path d="M8 22 Q15 16 22 22 Q29 28 36 22"/><path d="M8 22 Q15 28 22 22 Q29 16 36 22" opacity="0.4"/><line x1="22" y1="6" x2="22" y2="38"/></svg>
+        <div class="service-title" data-fr="Intermédiation internationale" data-en="International intermediation" data-ar="الوساطة الدولية">International intermediation</div>
+        <p class="service-desc" data-fr="Mise en relation structurée entre producteurs et importateurs européens. Gestion des termes contractuels, conditions de paiement et suivi des transactions." data-en="Structured matchmaking between producers and European importers. Management of contractual terms, payment conditions and transaction monitoring." data-ar="ربط منظّم بين المنتجين والمستوردين الأوروبيين. إدارة الشروط التعاقدية وشروط الدفع ومتابعة المعاملات.">Structured matchmaking between producers and European importers. Management of contractual terms, payment conditions and transaction monitoring.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <svg class="service-icon" viewBox="0 0 44 44"><path d="M10 34V20l12-10 12 10v14"/><rect x="18" y="26" width="8" height="8"/><path d="M6 20h32"/></svg>
+        <div class="service-title" data-fr="Gestion des incoterms" data-en="Incoterms management" data-ar="إدارة الإنكوترمز">Incoterms management</div>
+        <p class="service-desc" data-fr="Maîtrise complète des termes CFR, DAP et CPT. Répartition claire des risques et responsabilités entre vendeurs et acheteurs selon le contexte opérationnel." data-en="Full command of CFR, DAP and CPT terms. Clear allocation of risks and responsibilities between sellers and buyers according to the operational context." data-ar="إتقان كامل لشروط CFR وDAP وCPT. توزيع واضح للمخاطر والمسؤوليات بين البائعين والمشترين وفق السياق التشغيلي.">Full command of CFR, DAP and CPT terms. Clear allocation of risks and responsibilities between sellers and buyers according to the operational context.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <svg class="service-icon" viewBox="0 0 44 44"><circle cx="18" cy="14" r="6"/><path d="M6 38c0-7 5-12 12-12s12 5 12 12"/><circle cx="34" cy="16" r="4" opacity="0.5"/><path d="M36 38c0-5 3-8 7-8" opacity="0.5"/></svg>
+        <div class="service-title" data-fr="Conseil en structure commerciale" data-en="Commercial structure advisory" data-ar="استشارة الهيكل التجاري">Commercial structure advisory</div>
+        <p class="service-desc" data-fr="Accompagnement dans la mise en place de modèles trilatéraux, rédaction de contrats de partenariat et optimisation des schémas de flux entre entités." data-en="Support in setting up trilateral models, drafting partnership contracts and optimizing flow structures between entities." data-ar="دعم في إنشاء النماذج الثلاثية، وصياغة عقود الشراكة وتحسين هياكل التدفق بين الكيانات.">Support in setting up trilateral models, drafting partnership contracts and optimizing flow structures between entities.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <svg class="service-icon" viewBox="0 0 44 44"><rect x="8" y="24" width="28" height="12" rx="1"/><path d="M14 24V16a8 6 0 0 1 16 0v8"/><circle cx="22" cy="30" r="2"/></svg>
+        <div class="service-title" data-fr="Conformité & sécurisation" data-en="Compliance & security" data-ar="الامتثال والأمن">Compliance & security</div>
+        <p class="service-desc" data-fr="Vérification de la conformité documentaire à l'export et à l'import. Suivi des exigences réglementaires algériennes, françaises et européennes." data-en="Verification of documentary compliance for export and import. Monitoring of Algerian, French and European regulatory requirements." data-ar="التحقق من الامتثال الوثائقي للتصدير والاستيراد. متابعة المتطلبات التنظيمية الجزائرية والفرنسية والأوروبية.">Verification of documentary compliance for export and import. Monitoring of Algerian, French and European regulatory requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
+<!-- CORRIDORS -->
+<section id="corridors">
+  <div class="corridors-inner">
+    <div class="corridors-header fade-in">
+      <div class="section-eyebrow" data-fr="Zones d'intervention" data-en="Areas of operation" data-ar="مناطق التدخل">Areas of operation</div>
+      <h2><span data-fr="Corridors" data-en="Strategic" data-ar="ممرات">Strategic</span> <em><span data-fr="stratégiques" data-en="corridors" data-ar="استراتيجية">corridors</span></em></h2>
+    </div>
+    <div class="corridors-list">
+      <div class="corridor-item fade-in">
+        <div class="corridor-flag">DZ → FR</div>
+        <div class="corridor-detail">
+          <h3 data-fr="Algérie — France" data-en="Algeria — France" data-ar="الجزائر — فرنسا">Algeria — France</h3>
+          <p data-fr="Corridor principal. Exportation de produits agricoles et agroalimentaires algériens vers les marchés français et européens. Ports de Skikda et Alger vers Marseille et le Havre." data-en="Main corridor. Export of Algerian agricultural and agri-food products to French and European markets. Ports of Skikda and Algiers to Marseille and Le Havre." data-ar="الممر الرئيسي. تصدير المنتجات الزراعية والغذائية الجزائرية إلى الأسواق الفرنسية والأوروبية. موانئ سكيكدة والجزائر إلى مرسيليا وهافر.">Main corridor. Export of Algerian agricultural and agri-food products to French and European markets. Ports of Skikda and Algiers to Marseille and Le Havre.</p>
+        </div>
+      </div>
+      <div class="corridor-item fade-in">
+        <div class="corridor-flag">FR → EU</div>
+        <div class="corridor-detail">
+          <h3 data-fr="France — Europe" data-en="France — Europe" data-ar="فرنسا — أوروبا">France — Europe</h3>
+          <p data-fr="Redistribution au sein du marché unique européen. Coordination vers les distributeurs et importateurs en Europe du Nord et du Sud." data-en="Redistribution within the European single market. Coordination to distributors and importers in Northern and Southern Europe." data-ar="إعادة التوزيع داخل السوق الأوروبية الموحدة. التنسيق مع الموزعين والمستوردين في شمال أوروبا وجنوبها.">Redistribution within the European single market. Coordination to distributors and importers in Northern and Southern Europe.</p>
+        </div>
+      </div>
+      <div class="corridor-item fade-in">
+        <div class="corridor-flag">US · INT</div>
+        <div class="corridor-detail">
+          <h3 data-fr="Opérations internationales" data-en="International operations" data-ar="عمليات دولية">International operations</h3>
+          <p data-fr="TerraHit LLC intervient depuis les États-Unis comme opérateur de services international, assurant la facturation de prestations logistiques et commerciales sur les flux transfrontaliers." data-en="TerraHit LLC operates from the United States as an international service provider, handling billing for logistics and commercial services on cross-border flows." data-ar="تعمل TerraHit LLC من الولايات المتحدة كمزود خدمات دولي، تتولى فوترة الخدمات اللوجستية والتجارية عبر الحدود.">TerraHit LLC operates from the United States as an international service provider, handling billing for logistics and commercial services on cross-border flows.</p>
+        </div>
+      </div>
+      <div class="corridor-item fade-in">
+        <div class="corridor-flag">MED</div>
+        <div class="corridor-detail">
+          <h3 data-fr="Méditerranée" data-en="Mediterranean" data-ar="البحر الأبيض المتوسط">Mediterranean</h3>
+          <p data-fr="Expertise des routes maritimes méditerranéennes. Gestion des opérations portuaires, coordination avec les armateurs et suivi des délais de transit sur les lignes régulières." data-en="Expertise in Mediterranean maritime routes. Port operations management, coordination with shipping companies and transit time monitoring on regular lines." data-ar="خبرة في المسارات البحرية المتوسطية. إدارة العمليات الميناوية والتنسيق مع شركات الشحن ومراقبة أوقات العبور.">Expertise in Mediterranean maritime routes. Port operations management, coordination with shipping companies and transit time monitoring on regular lines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-wrap">
+    <div class="process-header fade-in">
+      <div class="section-eyebrow" data-fr="Notre méthode" data-en="Our method" data-ar="منهجيتنا">Our method</div>
+      <h2><span data-fr="Du sourcing à la" data-en="From sourcing to" data-ar="من التوريد إلى">From sourcing to</span> <em><span data-fr="livraison" data-en="delivery" data-ar="التسليم">delivery</span></em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-in"><div class="step-num">01</div><div class="step-content"><h3 data-fr="Analyse et qualification" data-en="Analysis & qualification" data-ar="التحليل والتأهيل">Analysis & qualification</h3><p data-fr="Évaluation de la faisabilité commerciale, identification des contraintes réglementaires et douanières, qualification des partenaires logistiques selon les corridors concernés." data-en="Assessment of commercial feasibility, identification of regulatory and customs constraints, qualification of logistics partners for the relevant corridors." data-ar="تقييم الجدوى التجارية وتحديد القيود التنظيمية والجمركية وتأهيل شركاء اللوجستيات للممرات المعنية.">Assessment of commercial feasibility, identification of regulatory and customs constraints, qualification of logistics partners for the relevant corridors.</p></div></div>
+      <div class="process-step fade-in"><div class="step-num">02</div><div class="step-content"><h3 data-fr="Structuration contractuelle" data-en="Contractual structuring" data-ar="الهيكلة التعاقدية">Contractual structuring</h3><p data-fr="Rédaction ou validation des contrats de service, définition des termes Incoterms, des conditions de paiement et des responsabilités de chaque entité impliquée dans la transaction." data-en="Drafting or validation of service contracts, definition of Incoterms, payment conditions and responsibilities of each entity involved in the transaction." data-ar="صياغة أو التحقق من عقود الخدمة وتحديد الإنكوترمز وشروط الدفع ومسؤوليات كل كيان في المعاملة.">Drafting or validation of service contracts, definition of Incoterms, payment conditions and responsibilities of each entity involved in the transaction.</p></div></div>
+      <div class="process-step fade-in"><div class="step-num">03</div><div class="step-content"><h3 data-fr="Coordination opérationnelle" data-en="Operational coordination" data-ar="التنسيق التشغيلي">Operational coordination</h3><p data-fr="Supervision du chargement, coordination avec les transitaires, émission des documents d'expédition et suivi en temps réel des cargaisons jusqu'au port de destination." data-en="Loading supervision, coordination with freight forwarders, issuance of shipping documents and real-time cargo tracking to the destination port." data-ar="الإشراف على التحميل والتنسيق مع شركات الشحن وإصدار وثائق الشحن وتتبع البضائع في الوقت الفعلي.">Loading supervision, coordination with freight forwarders, issuance of shipping documents and real-time cargo tracking to the destination port.</p></div></div>
+      <div class="process-step fade-in"><div class="step-num">04</div><div class="step-content"><h3 data-fr="Dédouanement & livraison" data-en="Customs clearance & delivery" data-ar="التخليص الجمركي والتسليم">Customs clearance & delivery</h3><p data-fr="Accompagnement dans les procédures de dédouanement à l'arrivée, coordination avec les équipes locales et confirmation de livraison conforme aux termes contractuels." data-en="Support through arrival customs clearance procedures, coordination with local teams and delivery confirmation in accordance with contractual terms." data-ar="المرافقة في إجراءات التخليص الجمركي عند الوصول والتنسيق مع الفرق المحلية وتأكيد التسليم وفق الشروط التعاقدية.">Support through arrival customs clearance procedures, coordination with local teams and delivery confirmation in accordance with contractual terms.</p></div></div>
+      <div class="process-step fade-in"><div class="step-num">05</div><div class="step-content"><h3 data-fr="Facturation & clôture" data-en="Invoicing & closing" data-ar="الفوترة والإغلاق">Invoicing & closing</h3><p data-fr="Émission des factures de services, réconciliation des paiements, archivage documentaire complet et bilan opérationnel pour optimiser les prochaines opérations." data-en="Issuance of service invoices, payment reconciliation, full documentary archiving and operational review to optimize future operations." data-ar="إصدار فواتير الخدمات ومطابقة المدفوعات والأرشفة الوثائقية الكاملة والمراجعة التشغيلية لتحسين العمليات المستقبلية.">Issuance of service invoices, payment reconciliation, full documentary archiving and operational review to optimize future operations.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info fade-in">
+      <div class="section-eyebrow" data-fr="Nous écrire" data-en="Get in touch" data-ar="تواصل معنا">Get in touch</div>
+      <h2><span data-fr="Démarrons" data-en="Let's start" data-ar="لنبدأ">Let's start</span> <em><span data-fr="ensemble" data-en="together" data-ar="معاً">together</span></em></h2>
+      <p data-fr="Vous avez un projet d'importation, d'exportation ou souhaitez structurer une opération commerciale internationale ? Contactez-nous pour une première analyse." data-en="Do you have an import or export project, or want to structure an international trade operation? Contact us for an initial assessment." data-ar="هل لديك مشروع استيراد أو تصدير، أو تريد هيكلة عملية تجارية دولية؟ تواصل معنا للحصول على تقييم أولي.">Do you have an import or export project, or want to structure an international trade operation? Contact us for an initial assessment.</p>
+      <div class="contact-detail">
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div>
+            <strong data-fr="Siège — Albuquerque, Nouveau-Mexique, États-Unis" data-en="HQ — Albuquerque, New Mexico, United States" data-ar="المقر — ألباكيركي، نيو مكسيكو، الولايات المتحدة">HQ — Albuquerque, New Mexico, United States</strong>
+            <span data-fr="Opérations depuis l'Europe et l'Algérie" data-en="Operations from Europe and Algeria" data-ar="عمليات من أوروبا والجزائر">Operations from Europe and Algeria</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <strong>contact@terrahit-llc.com</strong>
+            <span data-fr="Réponse sous 24–48h ouvrées" data-en="Response within 24–48 business hours" data-ar="رد خلال 24-48 ساعة عمل">Response within 24–48 business hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap fade-in">
+      <div class="form-title" data-fr="Envoyer une demande" data-en="Send a request" data-ar="أرسل طلبًا">Send a request</div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-fr="Nom complet" data-en="Full name" data-ar="الاسم الكامل">Full name</label>
+            <input type="text" data-fr-placeholder="Votre nom" data-en-placeholder="Your name" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label data-fr="Société" data-en="Company" data-ar="الشركة">Company</label>
+            <input type="text" data-fr-placeholder="Votre entreprise" data-en-placeholder="Your company" placeholder="Your company">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="contact@email.com">
+        </div>
+        <div class="form-group">
+          <label data-fr="Nature de l'opération" data-en="Type of operation" data-ar="نوع العملية">Type of operation</label>
+          <select>
+            <option value="" data-fr="Sélectionner..." data-en="Select..." data-ar="اختر...">Select...</option>
+            <option data-fr="Importation vers la France / UE" data-en="Import to France / EU" data-ar="استيراد إلى فرنسا / الاتحاد الأوروبي">Import to France / EU</option>
+            <option data-fr="Exportation depuis l'Algérie" data-en="Export from Algeria" data-ar="تصدير من الجزائر">Export from Algeria</option>
+            <option data-fr="Coordination logistique" data-en="Logistics coordination" data-ar="التنسيق اللوجستي">Logistics coordination</option>
+            <option data-fr="Documentation commerciale" data-en="Commercial documentation" data-ar="التوثيق التجاري">Commercial documentation</option>
+            <option data-fr="Conseil en structure commerciale" data-en="Commercial structure advisory" data-ar="استشارة الهيكل التجاري">Commercial structure advisory</option>
+            <option data-fr="Autre" data-en="Other" data-ar="أخرى">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-fr="Message" data-en="Message" data-ar="الرسالة">Message</label>
+          <textarea data-fr-placeholder="Décrivez brièvement votre projet ou besoin..." data-en-placeholder="Briefly describe your project or need..." placeholder="Briefly describe your project or need..."></textarea>
+        </div>
+        <button class="form-submit" data-fr="Envoyer la demande →" data-en="Send request →" data-ar="إرسال الطلب ←">Send request →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
+<!-- FOOTER -->
+<footer>
+  <img src="logo_terrahit_circulaire.png" alt="TerraHit LLC">
+  <span class="footer-tagline">Bridging Global Markets</span>
+  <span class="footer-copy">© 2025 TerraHit LLC — <span data-fr="Tous droits réservés" data-en="All rights reserved" data-ar="جميع الحقوق محفوظة">All rights reserved</span></span>
+</footer>
+
+<script>
+// FADE IN
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){ e.target.style.transitionDelay=(i*0.08)+'s'; e.target.classList.add('visible'); }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// HAMBURGER
+function toggleMenu(){
+  const btn=document.getElementById('hamburger');
+  const menu=document.getElementById('mobileMenu');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+
+// FORM
+document.querySelector('.form-submit').addEventListener('click',function(){
+  const lang=document.documentElement.lang;
+  this.textContent=lang==='en'?'Message sent ✓':'Message envoyé ✓';
+  this.style.background='#1C2B49';
+  setTimeout(()=>{
+    this.textContent=lang==='en'?'Send request →':'Envoyer la demande →';
+    this.style.background='';
+  },3000);
+});
+
+// LANG
+function setLang(lang){
+  document.documentElement.lang=lang;
+
+  // RTL pour arabe
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  document.body.style.fontFamily = (lang === 'ar') ? "'Cairo', sans-serif" : "";
+
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.textContent.toLowerCase()===lang);
+  });
+  document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
+    const val = el.getAttribute('data-'+lang);
+    if(val !== null && val !== ''){
+      const hasChildElements = el.children.length > 0;
+      if(!hasChildElements) el.textContent = val;
+    } else if(lang === 'ar'){
+      // Fallback EN si pas de traduction arabe
+      const val_en = el.getAttribute('data-en');
+      const hasChildElements = el.children.length > 0;
+      if(!hasChildElements && val_en) el.textContent = val_en;
+    }
+  });
+  document.querySelectorAll('[data-fr-placeholder]').forEach(el=>{
+    const ph = el.getAttribute('data-'+lang+'-placeholder');
+    if(ph) el.placeholder = ph;
+  });
+  document.querySelectorAll('option[data-fr]').forEach(opt=>{
+    const val = opt.getAttribute('data-'+lang);
+    if(val) opt.textContent = val;
+  });
+  document.querySelectorAll('p[data-fr][data-en], .hero-desc[data-fr][data-en]').forEach(el=>{
+    const val = el.getAttribute('data-'+lang);
+    if(val) el.textContent = val;
+  });
+}
+
+// DETECTION LANGUE APPAREIL — placé après setLang
+(function(){
+  const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  if(lang.startsWith('ar')) setLang('ar');
+  else if(lang.startsWith('fr')) setLang('fr');
+})();
+</script>
+</body>
+</html>
