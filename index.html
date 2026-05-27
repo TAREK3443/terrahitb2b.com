@@ -146,11 +146,36 @@
   .form-submit{margin-top:0.5rem;padding:1rem 2rem;width:100%;background:var(--green);color:var(--white);font-family:'Bricolage Grotesque',sans-serif;font-size:0.88rem;font-weight:400;border:none;cursor:pointer;transition:background 0.2s;}
   .form-submit:hover{background:var(--green-light);}
 
-  /* ── FOOTER ── */
-  footer{padding:2rem 6rem;border-top:1px solid var(--border);background:#fff;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;}
-  footer img{height:52px;width:52px;border-radius:50%;object-fit:cover;}
-  .footer-tagline{font-family:'Bricolage Grotesque',sans-serif;font-size:0.82rem;font-weight:300;letter-spacing:0.02em;color:var(--navy);}
-  .footer-copy{font-family:'Bricolage Grotesque',sans-serif;font-size:0.78rem;font-weight:300;color:var(--navy);}
+  /* ── WHY TERRAHIT ── */
+  #why{padding:7rem 6rem;background:#EEF2F7;}
+  .why-wrap{max-width:1200px;margin:0 auto;}
+  .why-header{max-width:580px;margin-bottom:4rem;}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .why-item{padding:2rem;border-left:3px solid var(--green);background:#fff;}
+  .why-item h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--navy);margin-bottom:0.6rem;}
+  .why-item p{font-size:0.95rem;font-weight:300;line-height:1.8;color:#1C2B49;}
+  @media(max-width:1200px){
+    #why{padding:3rem 1.2rem;}
+    .why-grid{grid-template-columns:1fr;}
+  }
+
+  /* ── FOOTER CORPORATE ── */
+  footer{padding:3.5rem 6rem;border-top:2px solid var(--border);background:#fff;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4rem;align-items:start;}
+  footer img{height:48px;width:48px;border-radius:50%;object-fit:cover;margin-bottom:1rem;display:block;}
+  .footer-col{display:flex;flex-direction:column;gap:0.35rem;}
+  .footer-brand{font-family:'Bricolage Grotesque',sans-serif;font-size:0.92rem;font-weight:500;color:var(--navy);}
+  .footer-sub{font-family:'Bricolage Grotesque',sans-serif;font-size:0.80rem;font-weight:300;color:rgba(28,43,73,0.6);line-height:1.7;}
+  .footer-email{font-family:'Bricolage Grotesque',sans-serif;font-size:0.80rem;font-weight:300;color:var(--green);text-decoration:none;margin-top:0.2rem;}
+  .footer-email:hover{color:var(--green-light);}
+  .footer-markets-title{font-family:'Bricolage Grotesque',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;}
+  .footer-markets-text{font-family:'Bricolage Grotesque',sans-serif;font-size:0.80rem;font-weight:300;line-height:1.75;color:rgba(28,43,73,0.6);}
+  .footer-links{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem;}
+  .footer-links a{font-family:'Bricolage Grotesque',sans-serif;font-size:0.80rem;font-weight:300;color:rgba(28,43,73,0.5);text-decoration:none;}
+  .footer-links a:hover{color:var(--navy);}
+  .footer-copy{font-family:'Bricolage Grotesque',sans-serif;font-size:0.75rem;font-weight:300;color:rgba(28,43,73,0.35);margin-top:auto;}
+  @media(max-width:1200px){
+    footer{grid-template-columns:1fr;padding:2rem 1.2rem;gap:2rem;}
+  }
 
   .desktop-only { display:block; }
 
@@ -395,6 +420,7 @@
   <ul>
     <li><a href="#about" data-fr="À propos" data-en="About" data-ar="من نحن">About</a></li>
     <li><a href="#services" data-fr="Services" data-en="Services" data-ar="خدماتنا">Services</a></li>
+    <li><a href="#why" data-fr="Pourquoi nous" data-en="Why TerraHit" data-ar="لماذا نحن">Why TerraHit</a></li>
     <li><a href="#process" data-fr="Processus" data-en="Process" data-ar="المنهجية">Process</a></li>
     <li><a href="#legal" data-fr="Mentions légales" data-en="Legal" data-ar="القانونية">Legal</a></li>
   </ul>
@@ -415,6 +441,7 @@
 <div class="nav-mobile-menu" id="mobileMenu">
   <a href="#about" data-fr="À propos" data-en="About" data-ar="من نحن" onclick="toggleMenu()">About</a>
   <a href="#services" data-fr="Services" data-en="Services" data-ar="خدماتنا" onclick="toggleMenu()">Services</a>
+  <a href="#why" data-fr="Pourquoi nous" data-en="Why TerraHit" data-ar="لماذا نحن" onclick="toggleMenu()">Why TerraHit</a>
   <a href="#process" data-fr="Processus" data-en="Process" data-ar="المنهجية" onclick="toggleMenu()">Process</a>
   <a href="#legal" data-fr="Mentions légales" data-en="Legal" data-ar="القانونية" onclick="toggleMenu()">Legal</a>
   <div class="nav-mobile-bottom">
@@ -513,6 +540,43 @@
           <div class="service-title" data-fr="Mise en relation" data-en="Supplier Matchmaking" data-ar="ربط الموردين">Supplier Matchmaking</div>
           <p class="service-desc" data-fr="Mise en relation de fournisseurs qualifiés avec des acheteurs et distributeurs internationaux vérifiés." data-en="Connection of qualified suppliers with verified international buyers and distributors." data-ar="ربط الموردين المؤهلين بالمشترين والموزعين الدوليين الموثوقين.">Connection of qualified suppliers with verified international buyers and distributors.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:3px;background:linear-gradient(90deg,#EEF2F7 0%,var(--green) 50%,#EEF2F7 100%);"></div>
+<!-- WHY TERRAHIT -->
+<section id="why">
+  <div class="why-wrap">
+    <div class="why-header fade-in">
+      <div class="section-eyebrow" data-fr="Pourquoi TerraHit" data-en="Why TerraHit" data-ar="لماذا TerraHit">Why TerraHit</div>
+      <h2><span data-fr="Ce qui nous" data-en="What sets us" data-ar="ما يميّزنا">What sets us</span> <em><span data-fr="distingue" data-en="apart" data-ar="عن غيرنا">apart</span></em></h2>
+    </div>
+    <div class="why-grid fade-in">
+      <div class="why-item">
+        <h4 data-fr="Réseau de sourcing international" data-en="International sourcing network" data-ar="شبكة توريد دولية">International sourcing network</h4>
+        <p data-fr="Accès à un réseau qualifié de producteurs et fournisseurs sur les marchés d'Afrique du Nord, d'Europe et au-delà — avec une connaissance terrain des filières agroalimentaires." data-en="Access to a qualified network of producers and suppliers across North Africa, Europe and beyond — with on-the-ground knowledge of agri-food supply chains." data-ar="الوصول إلى شبكة مؤهلة من المنتجين والموردين في شمال أفريقيا وأوروبا وما بعدها، مع معرفة ميدانية بسلاسل التوريد الغذائية.">Access to a qualified network of producers and suppliers across North Africa, Europe and beyond — with on-the-ground knowledge of agri-food supply chains.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-fr="Solutions commerciales flexibles" data-en="Flexible trade solutions" data-ar="حلول تجارية مرنة">Flexible trade solutions</h4>
+        <p data-fr="Chaque opération est structurée selon les besoins réels des parties : incoterms adaptés, modalités de paiement négociées, documentation conforme aux exigences d'import/export." data-en="Each operation is structured to the real needs of the parties involved: adapted incoterms, negotiated payment terms, documentation compliant with import/export requirements." data-ar="كل عملية مُهيكلة وفق الاحتياجات الفعلية للأطراف: إنكوترمز ملائمة وشروط دفع مفاوَض عليها ووثائق مطابقة لمتطلبات الاستيراد والتصدير.">Each operation is structured to the real needs of the parties involved: adapted incoterms, negotiated payment terms, documentation compliant with import/export requirements.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-fr="Exclusivement B2B" data-en="B2B-focused" data-ar="موجّه حصريًا للشركات">B2B-focused</h4>
+        <p data-fr="TerraHit LLC intervient uniquement avec des professionnels — importateurs, distributeurs, grossistes, centrales d'achat. Aucune transaction grand public." data-en="TerraHit LLC works exclusively with business entities — importers, distributors, wholesalers, purchasing groups. No retail or consumer transactions." data-ar="تعمل TerraHit LLC حصريًا مع الكيانات التجارية: المستوردون والموزعون وتجار الجملة ومجموعات الشراء. لا معاملات تجزئة.">TerraHit LLC works exclusively with business entities — importers, distributors, wholesalers, purchasing groups. No retail or consumer transactions.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-fr="Coordination réactive" data-en="Responsive coordination" data-ar="تنسيق سريع الاستجابة">Responsive coordination</h4>
+        <p data-fr="Un interlocuteur unique sur toute la chaîne : sourcing, documentation, logistique, suivi. Réponse sous 24–48h ouvrées sur toutes les demandes commerciales." data-en="A single point of contact across the entire chain: sourcing, documentation, logistics, follow-up. Response within 24–48 business hours on all commercial inquiries." data-ar="نقطة اتصال واحدة عبر السلسلة بأكملها: توريد، توثيق، لوجستيات، متابعة. رد خلال 24-48 ساعة عمل على جميع الاستفسارات التجارية.">A single point of contact across the entire chain: sourcing, documentation, logistics, follow-up. Response within 24–48 business hours on all commercial inquiries.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-fr="Expertise transfrontalière" data-en="Cross-border expertise" data-ar="خبرة عابرة للحدود">Cross-border expertise</h4>
+        <p data-fr="Maîtrise des contraintes douanières, réglementaires et logistiques propres aux échanges internationaux — notamment sur les corridors Méditerranée–Europe et Maghreb–UE." data-en="Command of customs, regulatory and logistics constraints specific to international trade — particularly on Mediterranean–Europe and Maghreb–EU corridors." data-ar="إتقان القيود الجمركية والتنظيمية واللوجستية الخاصة بالتجارة الدولية — لا سيما على ممرات البحر المتوسط–أوروبا والمغرب العربي–الاتحاد الأوروبي.">Command of customs, regulatory and logistics constraints specific to international trade — particularly on Mediterranean–Europe and Maghreb–EU corridors.</p>
+      </div>
+      <div class="why-item">
+        <h4 data-fr="Structure légale identifiable" data-en="Identifiable legal structure" data-ar="هيكل قانوني واضح">Identifiable legal structure</h4>
+        <p data-fr="Société américaine enregistrée (LLC, EIN 32-0822617), opérant dans le cadre de la législation américaine. Documentation contractuelle complète fournie sur demande." data-en="Registered US company (LLC, EIN 32-0822617), operating under US law. Full contractual documentation available upon request." data-ar="شركة أمريكية مسجلة (LLC، EIN 32-0822617)، تعمل وفق القانون الأمريكي. التوثيق التعاقدي الكامل متاح عند الطلب.">Registered US company (LLC, EIN 32-0822617), operating under US law. Full contractual documentation available upon request.</p>
       </div>
     </div>
   </div>
@@ -687,9 +751,30 @@
 
 
 <footer>
-  <img src="logo_terrahit_circulaire.png" alt="TerraHit LLC">
-  <span class="footer-tagline">Bridging Global Markets</span>
-  <span class="footer-copy">© 2025 TerraHit LLC — <span data-fr="Tous droits réservés" data-en="All rights reserved" data-ar="جميع الحقوق محفوظة">All rights reserved</span></span>
+  <!-- COL 1 : Identité -->
+  <div class="footer-col">
+    <img src="logo_terrahit_circulaire.png" alt="TerraHit LLC">
+    <span class="footer-brand">TerraHit LLC</span>
+    <span class="footer-sub">International B2B Trade &amp; Sourcing</span>
+    <span class="footer-sub">2105 Vista Oeste NW, Suite E #2030</span>
+    <span class="footer-sub">Albuquerque, NM 87120 – USA</span>
+    <a href="mailto:contact@terrahitb2b.com" class="footer-email">contact@terrahitb2b.com</a>
+  </div>
+  <!-- COL 2 : Markets -->
+  <div class="footer-col">
+    <span class="footer-markets-title" data-fr="Marchés" data-en="Markets" data-ar="الأسواق">Markets</span>
+    <p class="footer-markets-text" data-fr="TerraHit LLC opère sur les marchés internationaux B2B en Afrique du Nord, en Europe et au Moyen-Orient. Nos activités incluent le sourcing, le courtage, la mise en relation de fournisseurs et la coordination du commerce transfrontalier pour les acheteurs professionnels, distributeurs et partenaires grossistes." data-en="TerraHit LLC operates in international B2B trade markets across North Africa, Europe, and the Middle East. Our activities include sourcing, brokerage, supplier matchmaking, and cross-border trade coordination for professional buyers, distributors, and wholesale partners." data-ar="تعمل TerraHit LLC في أسواق التجارة الدولية B2B عبر شمال أفريقيا وأوروبا والشرق الأوسط. تشمل أنشطتنا التوريد والوساطة وربط الموردين وتنسيق التجارة العابرة للحدود للمشترين المحترفين والموزعين وشركاء الجملة.">TerraHit LLC operates in international B2B trade markets across North Africa, Europe, and the Middle East. Our activities include sourcing, brokerage, supplier matchmaking, and cross-border trade coordination for professional buyers, distributors, and wholesale partners.</p>
+  </div>
+  <!-- COL 3 : Legal + Copyright -->
+  <div class="footer-col">
+    <span class="footer-markets-title" data-fr="Informations légales" data-en="Legal" data-ar="قانوني">Legal</span>
+    <div class="footer-links">
+      <a href="#legal" onclick="showLegal('notice')" data-fr="Mentions légales" data-en="Legal Notice" data-ar="إشعار قانوني">Legal Notice</a>
+      <a href="#legal" onclick="showLegal('privacy')" data-fr="Politique de confidentialité" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+      <a href="#legal" onclick="showLegal('terms')" data-fr="Conditions générales" data-en="Terms &amp; Conditions" data-ar="الشروط والأحكام">Terms &amp; Conditions</a>
+    </div>
+    <span class="footer-copy">© 2026 TerraHit LLC. <span data-fr="Tous droits réservés." data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></span>
+  </div>
 </footer>
 
 <script>
