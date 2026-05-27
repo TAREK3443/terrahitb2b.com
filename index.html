@@ -10,8 +10,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TerraHit LLC — Bridging Global Markets</title>
-<link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bricolage+Grotesque:wght@300;400;500&display=swap" rel="stylesheet">
@@ -300,76 +302,50 @@
     #hero {
       flex-direction:column;
       padding:5.5rem 1.2rem 2.5rem;
-      gap:1.5rem; min-height:auto;
-      justify-content:center;
-      align-items:center;
+      min-height:auto;
+      justify-content:flex-start;
+      align-items:flex-start;
     }
-    .hero-logo-mobile {
-      display:block !important;
-      width:260px;
-      height:auto;
-      margin:0 auto;
-    }
+    .hero-inner { flex-direction:column; gap:2rem; }
+    .hero-logo-mobile { display:block !important; width:160px; height:auto; margin:0 auto; }
+    .desktop-only { display:none !important; }
     .hero-content { align-items:flex-start; width:100%; }
-    .about-logo-bg {
-      width:260px; height:260px;
-      top:10%; right:50%;
-      transform:translateX(50%);
-      opacity:0.08;
-    }
-    .hero-content { width:100%; }
-    .hero-tag { font-size:0.68rem; margin-bottom:0.8rem; }
-    h1 { font-size:2.4rem; line-height:1.1; }
-    h1 br { display:none; }
-    .hero-desc { font-size:0.9rem; margin-top:1rem; max-width:100%; }
-    .hero-actions {
-      flex-direction:column; align-items:stretch;
-      gap:0.8rem; margin-top:1.5rem;
-    }
+    .hero-tag { font-size:1rem; margin-bottom:0.6rem; }
+    h1 { font-size:2.2rem; line-height:1.1; white-space:normal; }
+    .hero-desc { font-size:0.93rem; margin-top:1rem; max-width:100%; }
+    .hero-actions { flex-direction:column; align-items:stretch; gap:0.8rem; margin-top:1.5rem; }
     .btn-primary { text-align:center; padding:1rem; font-size:0.9rem; }
     .btn-ghost { justify-content:center; }
-    .hero-metrics {
-      display:grid; grid-template-columns:1fr 1fr;
-      gap:1rem; margin-top:2rem; padding-top:1.5rem;
-    }
-    .metric-val { font-size:1.6rem; }
-    .metric-label { font-size:0.6rem; }
 
     /* ── About ── */
     #about { padding:3rem 1.2rem; }
-    .about-inner { grid-template-columns:1fr; gap:1.5rem; }
-    .about-visual { order:-1; justify-content:flex-end; }
-    .logo-circle {
-      width:100%;
-      max-width:280px;
-      height:auto;
-      margin:0 auto;
-      flex-shrink:0;
-    }
-    .about-visual { justify-content:center; }
-    
-    h2 { font-size:2rem; }
-    h2 br { display:none; }
-    .about-text p { font-size:0.9rem; margin-top:1rem; }
-    .accent-bar { margin:0.8rem 0; }
+    .about-inner { flex-direction:column; gap:1.5rem; }
+    h2 { font-size:1.9rem; }
+    .about-text p { font-size:0.93rem; margin-top:1rem; }
+
+    /* ── Markets ── */
+    #markets { padding:3rem 1.2rem !important; }
+    #markets > div > div:last-child { grid-template-columns:1fr !important; }
+    #markets > div > div > p { font-size:0.93rem; }
 
     /* ── Services ── */
     #services { padding:3rem 1.2rem; }
     .services-header { margin-bottom:2rem; }
     .services-row-top { grid-template-columns:1fr; }
     .services-row-bottom { flex-direction:column; }
-    .services-row-bottom .service-card { flex:1 1 100%; }
+    .services-row-bottom .service-card { flex:1 1 100%; border-right:none; border-left:none; border-top:1px solid rgba(28,43,73,0.12); }
     .service-card { padding:1.8rem 1.2rem; }
     .service-title { font-size:1.3rem; }
     .service-desc { font-size:0.93rem; }
 
+    /* ── Why TerraHit ── */
+    #why { padding:3rem 1.2rem; }
+    .why-grid { grid-template-columns:1fr; }
+
     /* ── Process ── */
     #process { padding:3rem 1.2rem; }
     .process-header { margin-bottom:2rem; }
-    .process-step {
-      grid-template-columns:40px 1fr;
-      gap:0.8rem; padding:1.8rem 0;
-    }
+    .process-step { grid-template-columns:40px 1fr; gap:0.8rem; padding:1.8rem 0; }
     .step-num { font-size:2rem; }
     .step-content h3 { font-size:1.2rem; }
     .step-content p { font-size:0.93rem; }
@@ -377,25 +353,28 @@
     /* ── Contact ── */
     #contact { padding:3rem 1.2rem; }
     .contact-inner { grid-template-columns:1fr; gap:2rem; }
-    .contact-info p { font-size:0.95rem; }
+    .contact-info p { font-size:0.93rem; }
     .form-row { grid-template-columns:1fr; }
     .contact-form-wrap { padding:1.5rem 1.2rem; }
     .form-title { font-size:1.3rem; margin-bottom:1rem; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea { font-size:1rem; padding:0.9rem; }
+    .form-group input, .form-group select, .form-group textarea { font-size:1rem; padding:0.9rem; }
     .form-submit { padding:1rem; font-size:0.9rem; }
 
+    /* ── Legal ── */
+    #legal { padding:3rem 1.2rem; }
+    .legal-tabs { flex-direction:column; }
+    .legal-tab { border-right:none; border-bottom:1px solid var(--border); }
+    .legal-tab:last-child { border-bottom:none; }
+    .legal-panel h3 { font-size:1.3rem; }
+    .legal-panel p, .legal-panel ul li, .legal-info-block p { font-size:0.93rem; }
+
     /* ── Footer ── */
-    footer {
-      flex-direction:column;
-      padding:1.5rem 1.2rem;
-      text-align:center; gap:0.6rem;
-    }
-    footer img { margin:0 auto; height:44px; width:44px; }
+    footer { grid-template-columns:1fr; padding:2rem 1.2rem; gap:2rem; }
+    footer img { height:44px; width:44px; }
+    .footer-right { align-items:flex-start; }
 
     /* ── Section eyebrow ── */
-    .section-eyebrow { font-size:0.68rem; }
+    .section-eyebrow { font-size:clamp(1.1rem,3.5vw,1.54rem); }
   }
 
   /* ══════════════════════════════
