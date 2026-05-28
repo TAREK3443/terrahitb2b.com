@@ -648,9 +648,11 @@
     </div>
     <div class="contact-form-wrap fade-in">
       <div class="form-title" data-fr="Envoyer une demande" data-en="Send a request" data-ar="أرسل طلبًا">Send a request</div>
-      <form class="contact-form" action="https://formspree.io/f/xgoqrdkl" method="POST" id="contact-form">
-        <input type="hidden" name="_subject" value="Nouvelle demande — TerraHit LLC">
-        <input type="hidden" name="_language" value="fr">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+        <input type="hidden" name="access_key" value="c0d41ad8-30f9-4f48-b896-4e46f0a5eaf8">
+        <input type="hidden" name="subject" value="Nouvelle demande — TerraHit LLC">
+        <input type="hidden" name="from_name" value="TerraHit LLC Website">
+        <div class="form-fields">
         <div class="form-row">
           <div class="form-group">
             <label data-fr="Nom complet" data-en="Full name" data-ar="الاسم الكامل">Full name</label>
@@ -682,7 +684,11 @@
           <textarea name="message" required data-fr-placeholder="Décrivez brièvement votre projet ou besoin..." data-en-placeholder="Briefly describe your project or need..." placeholder="Briefly describe your project or need..."></textarea>
         </div>
         <button type="submit" class="form-submit" data-fr="Envoyer la demande →" data-en="Send request →" data-ar="إرسال الطلب ←">Send request →</button>
-        <div id="form-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(45,124,49,0.08);border-left:3px solid var(--green);font-size:0.88rem;font-weight:300;color:var(--green-light);" data-fr="Message envoyé. Nous vous répondrons sous 24–48h ouvrées." data-en="Message sent. We will get back to you within 24–48 business hours." data-ar="تم إرسال الرسالة. سنرد عليك خلال 24-48 ساعة عمل.">Message sent. We will get back to you within 24–48 business hours.</div>
+        </div>
+        <div id="form-success" style="display:none;margin-top:1.5rem;padding:2rem;background:rgba(45,124,49,0.06);border-left:3px solid var(--green);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--navy);margin-bottom:0.5rem;" data-fr="Merci pour votre message." data-en="Thank you for your message." data-ar="شكراً على رسالتك.">Thank you for your message.</p>
+          <p style="font-size:0.93rem;font-weight:300;color:#1C2B49;line-height:1.8;" data-fr="Votre demande a bien été reçue. Un membre de l'équipe TerraHit LLC vous contactera dans les 24 à 48 heures ouvrées." data-en="Your request has been received. A member of the TerraHit LLC team will get back to you within 24 to 48 business hours." data-ar="تم استلام طلبك. سيتواصل معك أحد أعضاء فريق TerraHit LLC خلال 24 إلى 48 ساعة عمل.">Your request has been received. A member of the TerraHit LLC team will get back to you within 24 to 48 business hours.</p>
+        </div>
       </form>
     </div>
   </div>
@@ -810,7 +816,7 @@ if(contactForm){
     const data = new FormData(contactForm);
     btn.disabled = true;
     btn.textContent = '...';
-    fetch('https://formspree.io/f/xgoqrdkl', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
@@ -818,7 +824,7 @@ if(contactForm){
     .then(function(res){
       if(res.ok){
         contactForm.reset();
-        contactForm.style.display = 'none';
+        contactForm.querySelector('.form-fields').style.display = 'none';
         success.style.display = 'block';
       } else {
         return res.json().then(function(data){
