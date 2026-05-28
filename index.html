@@ -650,7 +650,7 @@
       <div class="form-title" data-fr="Envoyer une demande" data-en="Send a request" data-ar="أرسل طلبًا">Send a request</div>
       <form class="contact-form" action="https://formspree.io/f/xgoqrdkl" method="POST" id="contact-form">
         <input type="hidden" name="_subject" value="Nouvelle demande — TerraHit LLC">
-        <input type="hidden" name="_next" value="">
+        <input type="hidden" name="_language" value="fr">
         <div class="form-row">
           <div class="form-group">
             <label data-fr="Nom complet" data-en="Full name" data-ar="الاسم الكامل">Full name</label>
@@ -663,7 +663,7 @@
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" name="email" required placeholder="contact@email.com">
+          <input type="email" name="_replyto" required placeholder="contact@email.com">
         </div>
         <div class="form-group">
           <label data-fr="Nature de l'opération" data-en="Type of operation" data-ar="نوع العملية">Type of operation</label>
@@ -803,30 +803,36 @@ function showLegal(panel){
 // FORMSPREE AJAX
 const contactForm = document.getElementById('contact-form');
 if(contactForm){
-  contactForm.addEventListener('submit', async function(e){
+  contactForm.addEventListener('submit', function(e){
     e.preventDefault();
     const btn = contactForm.querySelector('.form-submit');
     const success = document.getElementById('form-success');
+    const data = new FormData(contactForm);
     btn.disabled = true;
     btn.textContent = '...';
-    try {
-      const res = await fetch('https://formspree.io/f/xgoqrdkl', {
-        method:'POST',
-        body: new FormData(contactForm),
-        headers:{ 'Accept':'application/json' }
-      });
+    fetch('https://formspree.io/f/xgoqrdkl', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
       if(res.ok){
         contactForm.reset();
+        contactForm.style.display = 'none';
         success.style.display = 'block';
-        btn.style.display = 'none';
       } else {
-        btn.disabled = false;
-        btn.textContent = 'Erreur — réessayer';
+        return res.json().then(function(data){
+          btn.disabled = false;
+          btn.textContent = 'Send request →';
+          alert('Erreur: ' + (data.error || 'Veuillez réessayer'));
+        });
       }
-    } catch(err){
+    })
+    .catch(function(){
       btn.disabled = false;
-      btn.textContent = 'Erreur — réessayer';
-    }
+      btn.textContent = 'Send request →';
+      alert('Erreur réseau — veuillez réessayer');
+    });
   });
 }
 
