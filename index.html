@@ -232,6 +232,26 @@
     text-align: right;
   }
 
+  [lang="ar"] #contact { direction: rtl; }
+  [lang="ar"] .contact-inner { direction: rtl; grid-template-columns: 1fr 1fr; }
+  [lang="ar"] .contact-info { text-align: right; order: 2; }
+  [lang="ar"] .contact-form-wrap { order: 1; }
+  [lang="ar"] .contact-info h2 { text-align: right; }
+  [lang="ar"] .contact-info p { text-align: right; }
+  [lang="ar"] .contact-detail { direction: rtl; }
+  [lang="ar"] .contact-row { flex-direction: row-reverse; text-align: right; justify-content: flex-end; }
+  [lang="ar"] .contact-row div { text-align: right; width: 100%; }
+  [lang="ar"] .contact-row strong { display:block; text-align: right !important; }
+  [lang="ar"] .contact-row span { display:block; text-align: right !important; }
+  [lang="ar"] .contact-form-wrap { direction: rtl; text-align: right; }
+  [lang="ar"] .form-title { text-align: right; }
+  [lang="ar"] .form-row { direction: rtl; flex-direction: row-reverse; }
+  [lang="ar"] .form-group { text-align: right; }
+  [lang="ar"] .form-group input,
+  [lang="ar"] .form-group select,
+  [lang="ar"] .form-group textarea { text-align: right; direction: rtl; }
+  [lang="ar"] .form-submit { direction: rtl; }
+
   /* ── LEGAL / PRIVACY / TERMS ── */
   #legal{padding:7rem 6rem;background:#F8F9FB;}
   .legal-wrap{max-width:860px;margin:0 auto;}
@@ -642,7 +662,7 @@
         <div class="contact-row">
           <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.48 2 2 0 0 1 3.6 1.31h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.71 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.91.35 1.85.58 2.81.71A2 2 0 0 1 22 16.92z"/></svg>
           <div>
-            <strong>+1 505-312-6576 (US) &nbsp;·&nbsp; +213 655 93 91 52 (DZ)</strong>
+            <strong><span dir="ltr">+1 505-312-6576 (US) &nbsp;·&nbsp; +213 655 93 91 52 (DZ)</span></strong>
             <span data-fr="Disponible en heures ouvrées" data-en="Available during business hours" data-ar="متاح خلال ساعات العمل">Available during business hours</span>
           </div>
         </div>
@@ -711,7 +731,7 @@
       <div class="legal-info-block">
         <p><strong>TERRAHIT LLC</strong></p>
         <p>2105 Vista Oeste NW, Suite E #2030 — Albuquerque, NM 87120 — USA</p>
-        <p><strong data-fr="Téléphone (US) :" data-en="Phone (US):" data-ar="هاتف (الولايات المتحدة):">Phone (US):</strong> +1 505-312-6576 &nbsp;|&nbsp; <strong data-fr="Téléphone (DZ) :" data-en="Phone (DZ):" data-ar="هاتف (الجزائر):">Phone (DZ):</strong> +213 655 93 91 52</p>
+        <p><strong data-fr="Téléphone (US) :" data-en="Phone (US):" data-ar="هاتف (الولايات المتحدة):">Phone (US):</strong> <span dir="ltr">+1 505-312-6576</span> &nbsp;|&nbsp; <strong data-fr="Téléphone (DZ) :" data-en="Phone (DZ):" data-ar="هاتف (الجزائر):">Phone (DZ):</strong> <span dir="ltr">+213 655 93 91 52</span></p>
         <p><strong>Email:</strong> <a href="mailto:contact@terrahitb2b.com" style="color:var(--green);text-decoration:none;">contact@terrahitb2b.com</a></p>
         <p><strong data-fr="Site web :" data-en="Website:" data-ar="الموقع الإلكتروني:">Website:</strong> <a href="https://terrahitb2b.com" style="color:var(--green);text-decoration:none;">https://terrahitb2b.com</a></p>
       </div>
