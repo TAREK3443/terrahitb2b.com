@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact TerraHit LLC — Get in Touch</title>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_512x512.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bricolage+Grotesque:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1C2B49; --navy-deep:#0F1E36;
+    --green:#2D7C31; --green-light:#3A9E40;
+    --white:#FFFFFF; --muted:#1C2B49;
+    --border:rgba(28,43,73,0.12); --border-dark:rgba(28,43,73,0.2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-hyphens:none;hyphens:none;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Bricolage Grotesque',sans-serif;background:#F8F9FB;color:var(--navy);overflow-x:hidden;}
+  
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+  .nav-brand{font-family:'Montserrat',sans-serif;font-size:3.2rem;font-weight:700;letter-spacing:0.02em;line-height:1;}
+  .nav-brand-wrap{display:inline-flex;align-items:center;line-height:1;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{font-size:1.2rem;font-weight:300;color:#1C2B49;text-decoration:none;transition:color 0.2s;}
+  nav ul a:hover{color:var(--green);}
+  .nav-right{display:flex;align-items:center;gap:1rem;}
+  .nav-cta{font-size:1.2rem;font-weight:400;color:var(--white);background:var(--green);padding:0.85rem 2rem;text-decoration:none;transition:background 0.2s;}
+  .nav-cta:hover{background:var(--green-light);}
+  .lang-toggle{display:flex;align-items:center;border:1px solid rgba(28,43,73,0.25);border-radius:2px;overflow:hidden;}
+  .lang-btn{font-size:1rem;font-weight:400;letter-spacing:0.1em;padding:0.6rem 1rem;background:transparent;color:#1C2B49;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;}
+  .lang-btn.active{background:var(--green);color:var(--white);}
+  
+  .page-header{height:50vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);padding-top:6rem;text-align:center;color:white;}
+  .page-header h1{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;margin-bottom:1rem;}
+  
+  section{padding:4rem 2rem;max-width:1000px;margin:0 auto;}
+  
+  .contact-wrapper{display:grid;grid-template-columns:1fr 2fr;gap:3rem;}
+  .contact-info{padding:2rem;background:white;border-radius:4px;}
+  .contact-info h3{color:var(--green);margin-bottom:1rem;}
+  .contact-info p{margin-bottom:0.5rem;color:#666;}
+  
+  .form-group{margin-bottom:1.5rem;}
+  .form-group label{display:block;margin-bottom:0.5rem;font-weight:500;color:var(--navy);}
+  .form-group input, .form-group textarea, .form-group select{width:100%;padding:0.8rem;border:1px solid var(--border);border-radius:2px;font-family:'Bricolage Grotesque',sans-serif;font-size:1rem;}
+  .form-group textarea{resize:vertical;min-height:150px;}
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 2px rgba(45,124,49,0.1);}
+  
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+  
+  .form-submit{background:var(--green);color:white;padding:1rem 2rem;border:none;border-radius:2px;font-size:1.1rem;font-weight:500;cursor:pointer;transition:background 0.3s;}
+  .form-submit:hover{background:var(--green-light);}
+  .form-submit:disabled{opacity:0.7;cursor:not-allowed;}
+  
+  /* Thank you page */
+  #thank-you-page{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);z-index:1000;flex-direction:column;align-items:center;justify-content:center;}
+  .thank-you-visible{display:flex!important;}
+  
+  footer{background:white;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;}
+  footer img{height:60px;}
+  .footer-tagline{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--green);font-weight:300;}
+  
+  @media(max-width:768px){
+    .page-header h1{font-size:2rem;}
+    .contact-wrapper{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    nav{padding:0.8rem 1rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" style="text-decoration:none;">
+    <div class="nav-brand-wrap">
+      <span class="nav-brand">TERRAHIT</span>
+    </div>
+  </a>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+    </div>
+    <a href="/contact.html" class="nav-cta" data-en="Contact" data-fr="Contacter">Contact</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <h1 data-en="Get in Touch" data-fr="Nous Contacter" data-ar="تواصل معنا">Get in Touch</h1>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <h3 data-en="Contact Information" data-fr="Informations de Contact" data-ar="معلومات الاتصال">Contact Information</h3>
+      <p><strong data-en="Email" data-fr="Email" data-ar="البريد الإلكتروني">Email</strong></p>
+      <p><a href="mailto:contact@terrahitb2b.com" style="color:var(--green);text-decoration:none;">contact@terrahitb2b.com</a></p>
+      <p style="margin-top:1.5rem;"><strong data-en="Headquarters" data-fr="Siège Social" data-ar="المقر الرئيسي">Headquarters</strong></p>
+      <p>Albuquerque, New Mexico<br>United States</p>
+      <p style="margin-top:1.5rem;"><strong data-en="Operations" data-fr="Opérations" data-ar="العمليات">Operations</strong></p>
+      <p data-en="Algeria & Europe" data-fr="Algérie & Europe" data-ar="الجزائر وأوروبا">Algeria & Europe</p>
+    </div>
+    
+    <div>
+      <form action="https://usebasin.com/f/3b9ec06003b5" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Full Name" data-fr="Nom Complet" data-ar="الاسم الكامل">Full Name</label>
+            <input type="text" name="full_name" required>
+          </div>
+          <div class="form-group">
+            <label data-en="Company" data-fr="Entreprise" data-ar="الشركة">Company</label>
+            <input type="text" name="company">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label data-en="Type of Operation" data-fr="Type d'Opération" data-ar="نوع العملية">Type of Operation</label>
+          <select name="operation_type">
+            <option value="" data-en="Select..." data-fr="Sélectionner..." data-ar="اختر...">Select...</option>
+            <option value="import_eu" data-en="Import to France / EU" data-fr="Importation vers la France / UE" data-ar="استيراد إلى فرنسا / الاتحاد الأوروبي">Import to France / EU</option>
+            <option value="export_algeria" data-en="Export from Algeria" data-fr="Exportation depuis l'Algérie" data-ar="تصدير من الجزائر">Export from Algeria</option>
+            <option value="logistics" data-en="Logistics coordination" data-fr="Coordination logistique" data-ar="التنسيق اللوجستي">Logistics coordination</option>
+            <option value="documentation" data-en="Commercial documentation" data-fr="Documentation commerciale" data-ar="التوثيق التجاري">Commercial documentation</option>
+            <option value="advisory" data-en="Commercial structure advisory" data-fr="Conseil en structure commerciale" data-ar="استشارة الهيكل التجاري">Commercial structure advisory</option>
+            <option value="other" data-en="Other" data-fr="Autre" data-ar="أخرى">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label data-en="Message" data-fr="Message" data-ar="الرسالة">Message</label>
+          <textarea name="message" required></textarea>
+        </div>
+        
+        <button type="submit" class="form-submit" data-en="Send Request →" data-fr="Envoyer la Demande →" data-ar="إرسال الطلب ←">Send Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- THANK YOU PAGE -->
+<div id="thank-you-page">
+  <div style="text-align:center;color:white;max-width:600px;padding:2rem;">
+    <div style="font-size:5rem;margin-bottom:2rem;">✓</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;margin-bottom:1.5rem;font-weight:300;">
+      <span data-en="Thank you for your request" data-fr="Merci pour votre demande" data-ar="شكرا على طلبك">Thank you for your request</span>
+    </h1>
+    <p style="font-size:1.1rem;margin-bottom:2rem;line-height:1.8;opacity:0.95;">
+      <span data-en="We have received your message." data-fr="Nous avons bien reçu votre message." data-ar="لقد تلقينا رسالتك.">We have received your message.</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:3rem;line-height:1.8;opacity:0.85;">
+      <span data-en="Our team will contact you within 24 hours to discuss your project." data-fr="Notre équipe vous recontactera dans les 24 heures pour discuter de votre projet." data-ar="سيتواصل فريقنا معك خلال 24 ساعة لمناقشة مشروعك.">Our team will contact you within 24 hours to discuss your project.</span>
+    </p>
+    <a href="/" style="display:inline-block;background:white;color:#2D7C31;padding:1rem 2.5rem;text-decoration:none;font-weight:600;border-radius:4px;font-size:1.1rem;transition:transform 0.2s;">
+      <span data-en="Back to home" data-fr="Retour à l'accueil" data-ar="العودة للصفحة الرئيسية">Back to home</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo_terrahit_circulaire.png" alt="TerraHit">
+  <span class="footer-tagline">Bridging Global Markets</span>
+  <span class="footer-copy">© 2026 TerraHit LLC</span>
+</footer>
+
+<script>
+// SHOW THANK YOU PAGE if success redirect
+if(new URLSearchParams(window.location.search).get('success')){
+  const thankYou = document.getElementById('thank-you-page');
+  if(thankYou){
+    thankYou.classList.add('thank-you-visible');
+    document.body.style.overflow='hidden';
+  }
+}
+
+function setLang(lang){
+  document.documentElement.lang=lang;
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  document.body.style.fontFamily = (lang === 'ar') ? "'Cairo', sans-serif" : "";
+  
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.textContent.toLowerCase()===lang);
+  });
+  
+  document.querySelectorAll('[data-en][data-fr]').forEach(el=>{
+    const val = el.getAttribute('data-'+lang);
+    if(val !== null && val !== '') el.textContent = val;
+  });
+}
+
+(function(){
+  const lang = (navigator.language || 'en').toLowerCase();
+  if(lang.startsWith('ar')) setLang('ar');
+  else if(lang.startsWith('fr')) setLang('fr');
+})();
+</script>
+
+</body>
+</html>
