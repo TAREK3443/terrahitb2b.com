@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Notices — TerraHit LLC</title>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_512x512.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bricolage+Grotesque:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1C2B49; --navy-deep:#0F1E36;
+    --green:#2D7C31; --green-light:#3A9E40;
+    --white:#FFFFFF;
+    --border:rgba(28,43,73,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-hyphens:none;hyphens:none;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Bricolage Grotesque',sans-serif;background:#F8F9FB;color:var(--navy);overflow-x:hidden;}
+  
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+  .nav-brand{font-family:'Montserrat',sans-serif;font-size:2.8rem;font-weight:800;letter-spacing:-0.02em;line-height:1;color:#1C2B49;text-transform:uppercase;}
+  .nav-brand-wrap{display:inline-flex;align-items:center;line-height:1;gap:0;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{font-size:1.4rem;font-weight:300;color:#1C2B49;text-decoration:none;transition:color 0.2s;}
+  nav ul a:hover{color:var(--green);}
+  .nav-right{display:flex;align-items:center;gap:1rem;}
+  .nav-cta{font-size:1.2rem;font-weight:400;color:var(--white);background:var(--green);padding:0.85rem 2rem;text-decoration:none;transition:background 0.2s;}
+  .nav-cta:hover{background:var(--green-light);}
+  .lang-toggle{display:flex;align-items:center;border:1px solid rgba(28,43,73,0.25);border-radius:2px;overflow:hidden;}
+  .lang-btn{font-size:1rem;font-weight:400;letter-spacing:0.1em;padding:0.6rem 1rem;background:transparent;color:#1C2B49;border:none;cursor:pointer;transition:background 0.2s;}
+  .lang-btn.active{background:var(--green);color:white;}
+  
+  .page-header{height:40vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);padding-top:6rem;text-align:center;color:white;}
+  .page-header h1{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;margin-bottom:1rem;}
+  
+  section{padding:4rem 2rem;max-width:900px;margin:0 auto;}
+  .legal-content h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-top:2rem;margin-bottom:1rem;color:var(--navy);}
+  .legal-content p{margin-bottom:1rem;line-height:1.8;color:#555;}
+  .legal-content ul{margin-left:2rem;margin-bottom:1rem;}
+  .legal-content li{margin-bottom:0.5rem;line-height:1.6;}
+  
+  footer{background:white;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;}
+  footer img{height:60px;}
+  .footer-copy{font-size:0.9rem;color:#999;}
+  
+  @media(max-width:768px){
+    .page-header h1{font-size:2rem;}
+    nav{padding:0.8rem 1rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" style="text-decoration:none;">
+    <div class="nav-brand-wrap">
+      <img src="logo_terrahit_circulaire.png" alt="TerraHit" style="height:150px;" />
+    </div>
+  </a>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/legal.html">Legal</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+    </div>
+    <a href="/contact.html" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <h1 data-en="Legal Notices" data-fr="Mentions Légales" data-ar="الإشعارات القانونية">Legal Notices</h1>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<section class="legal-content">
+  <h2>1. Éditeur du site</h2>
+  <p>Le site terrahitb2b.com est édité par :</p>
+  <p><strong>TerraHit LLC</strong><br>
+  Limited Liability Company constituée conformément aux lois de l'État du Nouveau-Mexique, États-Unis.<br>
+  Registered Office :<br>
+  2105 Vista Oeste NW, Suite E #2030<br>
+  Albuquerque, NM 87120<br>
+  United States<br>
+  Email : contact@terrahitb2b.com<br>
+  Site internet : terrahitb2b.com</p>
+  <p>TerraHit LLC exerce notamment des activités de coordination commerciale internationale, de sourcing, d'intermédiation commerciale et d'accompagnement d'opérations transfrontalières dans le cadre de relations entre professionnels.</p>
+
+  <h2>2. Hébergement et infrastructure technique</h2>
+  <p>Le site terrahitb2b.com utilise les services et l'infrastructure technique de :</p>
+  <p><strong>Cloudflare, Inc.</strong><br>
+  101 Townsend St.<br>
+  San Francisco, CA 94107<br>
+  United States</p>
+  <p>Cloudflare fournit notamment des services d'infrastructure web, de distribution de contenu, de sécurisation et de protection du site. Selon la configuration technique utilisée, Cloudflare peut également intervenir dans l'hébergement ou l'exécution de tout ou partie du site. Certaines données techniques nécessaires au fonctionnement, à la sécurité et à la performance du site peuvent être traitées par Cloudflare dans le cadre de la fourniture de ses services.</p>
+
+  <h2>3. Objet du site</h2>
+  <p>Le site terrahitb2b.com a pour objet de présenter les activités, services, marchés, produits et capacités commerciales de TerraHit LLC. Les informations présentées sur le site sont fournies à titre général et informatif. Sauf indication expresse contraire, les informations figurant sur le site ne constituent ni une offre contractuelle ferme, ni une garantie de disponibilité, de prix, de quantité, d'origine, de délai de livraison ou de conditions commerciales. Toute transaction ou prestation fait l'objet de conditions spécifiques convenues entre les parties concernées.</p>
+
+  <h2>4. Propriété intellectuelle</h2>
+  <p>Sauf indication contraire, les textes, présentations, éléments graphiques, logos, photographies, illustrations, documents, mises en page et autres contenus créés pour le site terrahitb2b.com sont la propriété de TerraHit LLC ou sont utilisés avec l'autorisation de leurs titulaires respectifs. Toute reproduction, représentation, adaptation, modification, distribution ou exploitation substantielle de ces contenus sans l'autorisation écrite préalable de TerraHit LLC ou du titulaire des droits concerné est interdite, sauf dans les cas autorisés par la législation applicable. Les marques, logos, photographies et autres contenus appartenant à des tiers demeurent la propriété de leurs titulaires respectifs.</p>
+
+  <h2>5. Exactitude des informations commerciales</h2>
+  <p>TerraHit LLC s'efforce de fournir sur ce site des informations exactes et régulièrement mises à jour. Toutefois, compte tenu notamment de l'évolution des marchés, des disponibilités des produits, de la saisonnalité agricole, des conditions logistiques, des réglementations, des coûts de transport et des conditions commerciales, certaines informations peuvent évoluer sans préavis. TerraHit LLC ne garantit donc pas l'exhaustivité, l'actualité permanente ou l'absence d'erreur dans les informations disponibles sur le site. Les caractéristiques, origines, disponibilités, conditionnements, volumes, prix, délais, modalités de transport doivent être confirmés avant toute transaction.</p>
+
+  <h2>6. Limitation de responsabilité</h2>
+  <p>L'utilisation du site terrahitb2b.com s'effectue sous la responsabilité de l'utilisateur. Dans les limites autorisées par la législation applicable, TerraHit LLC ne saurait être tenue responsable des dommages résultant directement ou indirectement :</p>
+  <ul>
+    <li>de l'utilisation ou de l'impossibilité d'utiliser le site ;</li>
+    <li>d'une interruption temporaire ou permanente du service ;</li>
+    <li>d'une erreur ou omission dans les informations publiées ;</li>
+    <li>d'informations devenues inexactes ou obsolètes ;</li>
+    <li>d'un dysfonctionnement technique indépendant de sa volonté ;</li>
+    <li>de l'utilisation d'informations générales publiées sur le site sans confirmation commerciale préalable.</li>
+  </ul>
+  <p>TerraHit LLC ne garantit pas que le site sera accessible en permanence ou exempt de toute erreur, interruption ou vulnérabilité technique.</p>
+
+  <h2>7. Liens vers des sites tiers</h2>
+  <p>Le site peut contenir des liens vers des sites internet, plateformes ou ressources exploités par des tiers. Ces liens sont fournis uniquement à titre informatif ou pour faciliter l'accès à certaines ressources. TerraHit LLC n'exerce aucun contrôle sur le contenu de ces sites tiers et n'assume aucune responsabilité concernant leur disponibilité, leur contenu, leurs pratiques, leurs conditions d'utilisation ou leurs politiques de confidentialité.</p>
+
+  <h2>8. Protection des données personnelles</h2>
+  <p>TerraHit LLC peut collecter et traiter certaines données personnelles, notamment lorsqu'un utilisateur contacte l'entreprise par l'intermédiaire du site ou par courrier électronique. Les modalités relatives à la collecte, à l'utilisation, à la conservation et à la protection de ces données sont détaillées dans la Politique de confidentialité accessible sur le site.</p>
+
+  <h2>9. Cookies et technologies similaires</h2>
+  <p>Le site peut utiliser des cookies ou technologies similaires strictement nécessaires à son fonctionnement, à sa sécurité et à sa protection contre les usages abusifs. Certains mécanismes techniques peuvent notamment être mis en œuvre par Cloudflare afin d'assurer la sécurité, la disponibilité et la performance du site. Des informations complémentaires sont disponibles dans la Politique de confidentialité du site.</p>
+
+  <h2>10. Droit applicable</h2>
+  <p>Sous réserve des dispositions impératives éventuellement applicables dans une juridiction déterminée, les présentes mentions légales et l'utilisation du site sont régies par les lois de l'État du Nouveau-Mexique, États-Unis. Cette disposition concerne l'utilisation du site et ne préjuge pas du droit applicable aux transactions commerciales conclues par TerraHit LLC.</p>
+
+  <h2>11. Modification des mentions légales</h2>
+  <p>TerraHit LLC peut modifier les présentes mentions légales afin de tenir compte notamment de l'évolution de ses activités, des modifications apportées au site, des évolutions techniques, des changements concernant ses prestataires ou des modifications légales ou réglementaires. La version applicable est celle publiée sur le site à la date de consultation.</p>
+
+  <h2>12. Contact</h2>
+  <p>Pour toute question relative au site ou aux présentes mentions légales :</p>
+  <p><strong>TerraHit LLC</strong><br>
+  2105 Vista Oeste NW, Suite E #2030<br>
+  Albuquerque, NM 87120<br>
+  United States<br>
+  Email : contact@terrahitb2b.com<br>
+  Site internet : terrahitb2b.com</p>
+
+  <p style="margin-top:2rem;font-size:0.9rem;color:#999;">Dernière mise à jour : août 2026</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo_terrahit_circulaire.png" alt="TerraHit">
+  <span class="footer-copy">© 2026 TerraHit — <span data-en="All rights reserved" data-fr="Tous droits réservés" data-ar="جميع الحقوق محفوظة">All rights reserved</span></span>
+</footer>
+
+<script>
+function setLang(lang){
+  document.documentElement.lang=lang;
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  document.body.style.fontFamily = (lang === 'ar') ? "'Cairo', sans-serif" : "";
+  
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.textContent.toLowerCase()===lang);
+  });
+  
+  document.querySelectorAll('[data-en][data-fr]').forEach(el=>{
+    const val = el.getAttribute('data-'+lang);
+    if(val !== null && val !== '') el.textContent = val;
+  });
+}
+
+(function(){
+  const lang = (navigator.language || 'en').toLowerCase();
+  if(lang.startsWith('ar')) setLang('ar');
+  else if(lang.startsWith('fr')) setLang('fr');
+})();
+</script>
+
+</body>
+</html>
