@@ -618,6 +618,28 @@
   </div>
 </section>
 
+<!-- THANK YOU PAGE -->
+<div id="thank-you-page" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);z-index:1000;align-items:center;justify-content:center;">
+  <div style="text-align:center;color:white;max-width:600px;padding:2rem;">
+    <div style="font-size:5rem;margin-bottom:2rem;animation:scaleIn 0.6s ease-out;">✓</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;margin-bottom:1.5rem;font-weight:300;">
+      <span data-fr="Merci pour votre demande">Thank you for your request</span>
+    </h1>
+    <p style="font-size:1.1rem;margin-bottom:2rem;line-height:1.8;opacity:0.95;">
+      <span data-fr="Nous avons bien reçu votre message.">We have received your message.</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:3rem;line-height:1.8;opacity:0.85;">
+      <span data-fr="Notre équipe vous recontactera dans les 24 heures pour discuter de votre projet.">Our team will contact you within 24 hours to discuss your project.</span>
+    </p>
+    <a href="/" style="display:inline-block;background:white;color:#2D7C31;padding:1rem 2.5rem;text-decoration:none;font-weight:600;border-radius:4px;font-size:1.1rem;transition:transform 0.2s;">
+      <span data-fr="Retour à l'accueil">Back to home</span>
+    </a>
+  </div>
+  <style>
+    @keyframes scaleIn{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
+  </style>
+</div>
+
 <div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
 <!-- FOOTER -->
 <footer>
@@ -627,6 +649,12 @@
 </footer>
 
 <script>
+// SHOW THANK YOU PAGE FIRST (priority)
+if(new URLSearchParams(window.location.search).get('success')){
+  document.getElementById('thank-you-page').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+
 // FADE IN
 const obs = new IntersectionObserver(entries => {
   entries.forEach((e,i) => {
