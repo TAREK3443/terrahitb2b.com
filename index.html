@@ -618,16 +618,6 @@
   </div>
 </section>
 
-<!-- THANK YOU PAGE -->
-<section id="thank-you" class="thank-you-section" style="display:none;min-height:100vh;align-items:center;justify-content:center;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);padding:2rem;">
-  <div class="thank-you-content" style="text-align:center;color:white;max-width:600px;">
-    <div style="font-size:4rem;margin-bottom:1rem;">✓</div>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:3rem;margin-bottom:1rem;" data-fr="Merci pour votre demande" data-en="Thank you for your request" data-ar="شكرا على طلبك">Thank you for your request</h1>
-    <p style="font-size:1.2rem;margin-bottom:2rem;line-height:1.6;" data-fr="Nous avons bien reçu votre message. Notre équipe vous contactera dans les 24 heures." data-en="We have received your message. Our team will contact you within 24 hours." data-ar="لقد تلقينا رسالتك. سيتواصل فريقنا معك خلال 24 ساعة.">We have received your message. Our team will contact you within 24 hours.</p>
-    <a href="#contact" style="display:inline-block;background:white;color:#2D7C31;padding:1rem 2rem;text-decoration:none;font-weight:600;border-radius:4px;margin-top:1rem;" data-fr="Retour au formulaire" data-en="Back to contact" data-ar="العودة للنموذج">Back to contact</a>
-  </div>
-</section>
-
 <div style="height:3px;background:linear-gradient(90deg,#F8F9FB 0%,var(--green) 50%,#F8F9FB 100%);"></div>
 <!-- FOOTER -->
 <footer>
@@ -651,18 +641,6 @@ function toggleMenu(){
   const menu=document.getElementById('mobileMenu');
   btn.classList.toggle('open');
   menu.classList.toggle('open');
-}
-
-// THANK YOU PAGE
-if(new URLSearchParams(window.location.search).get('success')){
-  document.querySelector('#thank-you').style.display='flex';
-  document.body.style.overflow='hidden';
-  // Appliquer la langue à la page de remerciement
-  const lang = document.documentElement.lang;
-  document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
-    const val = el.getAttribute('data-'+lang);
-    if(val !== null && val !== '') el.textContent = val;
-  });
 }
 
 // FORM
