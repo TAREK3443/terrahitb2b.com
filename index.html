@@ -353,6 +353,7 @@
     .about-visual 
     nav { padding:0.8rem 1rem; }
   }
+  .thank-you-visible{display:flex!important;}
 </style>
 </head>
 <body>
@@ -619,7 +620,7 @@
 </section>
 
 <!-- THANK YOU PAGE -->
-<div id="thank-you-page" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);z-index:1000;align-items:center;justify-content:center;">
+<div id="thank-you-page" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);z-index:1000;flex-direction:column;align-items:center;justify-content:center;">
   <div style="text-align:center;color:white;max-width:600px;padding:2rem;">
     <div style="font-size:5rem;margin-bottom:2rem;animation:scaleIn 0.6s ease-out;">✓</div>
     <h1 style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;margin-bottom:1.5rem;font-weight:300;">
@@ -651,8 +652,11 @@
 <script>
 // SHOW THANK YOU PAGE FIRST (priority)
 if(new URLSearchParams(window.location.search).get('success')){
-  document.getElementById('thank-you-page').style.display='flex';
-  document.body.style.overflow='hidden';
+  const thankYou = document.getElementById('thank-you-page');
+  if(thankYou){
+    thankYou.classList.add('thank-you-visible');
+    document.body.style.overflow='hidden';
+  }
 }
 
 // FADE IN
