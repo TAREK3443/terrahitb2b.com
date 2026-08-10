@@ -581,40 +581,50 @@
     </div>
     <div class="contact-form-wrap fade-in">
       <div class="form-title" data-fr="Envoyer une demande" data-en="Send a request" data-ar="أرسل طلبًا">Send a request</div>
-      <div class="contact-form">
+      <form class="contact-form" action="https://usebasin.com/f/3b9ec06003b5" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label data-fr="Nom complet" data-en="Full name" data-ar="الاسم الكامل">Full name</label>
-            <input type="text" data-fr-placeholder="Votre nom" data-en-placeholder="Your name" placeholder="Your name">
+            <input type="text" name="full_name" data-fr-placeholder="Votre nom" data-en-placeholder="Your name" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label data-fr="Société" data-en="Company" data-ar="الشركة">Company</label>
-            <input type="text" data-fr-placeholder="Votre entreprise" data-en-placeholder="Your company" placeholder="Your company">
+            <input type="text" name="company" data-fr-placeholder="Votre entreprise" data-en-placeholder="Your company" placeholder="Your company">
           </div>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="contact@email.com">
+          <input type="email" name="email" placeholder="contact@email.com" required>
         </div>
         <div class="form-group">
           <label data-fr="Nature de l'opération" data-en="Type of operation" data-ar="نوع العملية">Type of operation</label>
-          <select>
+          <select name="operation_type">
             <option value="" data-fr="Sélectionner..." data-en="Select..." data-ar="اختر...">Select...</option>
-            <option data-fr="Importation vers la France / UE" data-en="Import to France / EU" data-ar="استيراد إلى فرنسا / الاتحاد الأوروبي">Import to France / EU</option>
-            <option data-fr="Exportation depuis l'Algérie" data-en="Export from Algeria" data-ar="تصدير من الجزائر">Export from Algeria</option>
-            <option data-fr="Coordination logistique" data-en="Logistics coordination" data-ar="التنسيق اللوجستي">Logistics coordination</option>
-            <option data-fr="Documentation commerciale" data-en="Commercial documentation" data-ar="التوثيق التجاري">Commercial documentation</option>
-            <option data-fr="Conseil en structure commerciale" data-en="Commercial structure advisory" data-ar="استشارة الهيكل التجاري">Commercial structure advisory</option>
-            <option data-fr="Autre" data-en="Other" data-ar="أخرى">Other</option>
+            <option value="import_eu" data-fr="Importation vers la France / UE" data-en="Import to France / EU" data-ar="استيراد إلى فرنسا / الاتحاد الأوروبي">Import to France / EU</option>
+            <option value="export_algeria" data-fr="Exportation depuis l'Algérie" data-en="Export from Algeria" data-ar="تصدير من الجزائر">Export from Algeria</option>
+            <option value="logistics" data-fr="Coordination logistique" data-en="Logistics coordination" data-ar="التنسيق اللوجستي">Logistics coordination</option>
+            <option value="documentation" data-fr="Documentation commerciale" data-en="Commercial documentation" data-ar="التوثيق التجاري">Commercial documentation</option>
+            <option value="advisory" data-fr="Conseil en structure commerciale" data-en="Commercial structure advisory" data-ar="استشارة الهيكل التجاري">Commercial structure advisory</option>
+            <option value="other" data-fr="Autre" data-en="Other" data-ar="أخرى">Other</option>
           </select>
         </div>
         <div class="form-group">
           <label data-fr="Message" data-en="Message" data-ar="الرسالة">Message</label>
-          <textarea data-fr-placeholder="Décrivez brièvement votre projet ou besoin..." data-en-placeholder="Briefly describe your project or need..." placeholder="Briefly describe your project or need..."></textarea>
+          <textarea name="message" data-fr-placeholder="Décrivez brièvement votre projet ou besoin..." data-en-placeholder="Briefly describe your project or need..." placeholder="Briefly describe your project or need..." required></textarea>
         </div>
-        <button class="form-submit" data-fr="Envoyer la demande →" data-en="Send request →" data-ar="إرسال الطلب ←">Send request →</button>
-      </div>
+        <button type="submit" class="form-submit" data-fr="Envoyer la demande →" data-en="Send request →" data-ar="إرسال الطلب ←">Send request →</button>
+      </form>
     </div>
+  </div>
+</section>
+
+<!-- THANK YOU PAGE -->
+<section id="thank-you" class="thank-you-section" style="display:none;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2D7C31 0%,#1C2B49 100%);padding:2rem;">
+  <div class="thank-you-content" style="text-align:center;color:white;max-width:600px;">
+    <div style="font-size:4rem;margin-bottom:1rem;">✓</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:3rem;margin-bottom:1rem;" data-fr="Merci pour votre demande" data-en="Thank you for your request" data-ar="شكرا على طلبك">Thank you for your request</h1>
+    <p style="font-size:1.2rem;margin-bottom:2rem;line-height:1.6;" data-fr="Nous avons bien reçu votre message. Notre équipe vous contactera dans les 24 heures." data-en="We have received your message. Our team will contact you within 24 hours." data-ar="لقد تلقينا رسالتك. سيتواصل فريقنا معك خلال 24 ساعة.">We have received your message. Our team will contact you within 24 hours.</p>
+    <a href="#contact" style="display:inline-block;background:white;color:#2D7C31;padding:1rem 2rem;text-decoration:none;font-weight:600;border-radius:4px;margin-top:1rem;" data-fr="Retour au formulaire" data-en="Back to contact" data-ar="العودة للنموذج">Back to contact</a>
   </div>
 </section>
 
@@ -643,15 +653,26 @@ function toggleMenu(){
   menu.classList.toggle('open');
 }
 
+// THANK YOU PAGE
+if(new URLSearchParams(window.location.search).get('success')){
+  document.querySelector('#thank-you').style.display='flex';
+  document.body.style.overflow='hidden';
+  // Appliquer la langue à la page de remerciement
+  const lang = document.documentElement.lang;
+  document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
+    const val = el.getAttribute('data-'+lang);
+    if(val !== null && val !== '') el.textContent = val;
+  });
+}
+
 // FORM
-document.querySelector('.form-submit').addEventListener('click',function(){
+document.querySelector('.contact-form').addEventListener('submit',function(e){
+  const btn = document.querySelector('.form-submit');
   const lang=document.documentElement.lang;
-  this.textContent=lang==='en'?'Message sent ✓':'Message envoyé ✓';
-  this.style.background='#1C2B49';
-  setTimeout(()=>{
-    this.textContent=lang==='en'?'Send request →':'Envoyer la demande →';
-    this.style.background='';
-  },3000);
+  btn.textContent=lang==='en'?'Sending...':'Envoi en cours...';
+  btn.disabled=true;
+  btn.style.opacity='0.7';
+  // Basin va gérer la soumission — juste feedback utilisateur
 });
 
 // LANG
