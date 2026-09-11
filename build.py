@@ -18,6 +18,7 @@ PAGES = {
     "about": "about.html",
     "services": "services.html",
     "contact": "contact.html",
+    "thanks": "thank-you.html",
     "legal": "legal.html",
     "privacy": "privacy.html",
 }
@@ -33,6 +34,7 @@ COPY = {
             "about": "About TerraHit — Algeria–Europe Trade Coordination",
             "services": "Trade Coordination Services — TerraHit LLC",
             "contact": "Contact TerraHit LLC",
+            "thanks": "Thank You — TerraHit LLC",
             "legal": "Legal Notices — TerraHit LLC",
             "privacy": "Privacy Policy — TerraHit LLC",
         },
@@ -41,6 +43,7 @@ COPY = {
             "about": "Learn how TerraHit LLC coordinates reliable and transparent B2B trade operations between Algeria, Europe and international markets.",
             "services": "Supplier liaison, trade documentation, logistics coordination and operational follow-up for Algeria–Europe B2B transactions.",
             "contact": "Discuss an Algeria–Europe import-export operation with TerraHit LLC.",
+            "thanks": "Confirmation that your message has been sent to TerraHit LLC.",
             "legal": "Legal notices for the TerraHit LLC website.",
             "privacy": "How TerraHit LLC processes personal data submitted through its website.",
         },
@@ -49,6 +52,7 @@ COPY = {
         "home": {
             "eyebrow": "ALGERIA–EUROPE B2B TRADE",
             "h1": "Your operational bridge between Algeria and Europe",
+            "h1_lines": ["Your operational bridge", "between Algeria and Europe"],
             "lead": "TerraHit coordinates suppliers, buyers, documentation and logistics partners so every party has a clear view of the operation.",
             "primary": "Describe your operation",
             "secondary": "Explore our services",
@@ -116,8 +120,17 @@ COPY = {
             "message": "Operation details",
             "message_help": "Product, origin, destination, estimated volume and desired timing.",
             "submit": "Send request",
+            "sending": "Sending…",
+            "error": "Your message could not be sent. Please try again or email contact@terrahitb2b.com.",
             "privacy_note": "TerraHit uses the information provided solely to review and respond to your request.",
             "privacy_link": "Read the privacy policy",
+        },
+        "thanks": {
+            "h1": "Thank you for your message",
+            "intro": "Your request has been sent to TerraHit.",
+            "message": "We will review the information provided and contact you if further details are needed.",
+            "home": "Return to the homepage",
+            "contact": "Send another request",
         },
         "legal": {
             "h1": "Legal notices",
@@ -159,6 +172,7 @@ COPY = {
             "about": "À propos de TerraHit — Coordination Algérie–Europe",
             "services": "Services de coordination commerciale — TerraHit LLC",
             "contact": "Contacter TerraHit LLC",
+            "thanks": "Merci pour votre message — TerraHit LLC",
             "legal": "Mentions légales — TerraHit LLC",
             "privacy": "Politique de confidentialité — TerraHit LLC",
         },
@@ -167,6 +181,7 @@ COPY = {
             "about": "Découvrez comment TerraHit LLC coordonne des opérations commerciales B2B fiables et transparentes entre l’Algérie et l’Europe.",
             "services": "Mise en relation, coordination documentaire et logistique, et suivi opérationnel des échanges B2B Algérie–Europe.",
             "contact": "Présentez votre opération d’import-export Algérie–Europe à TerraHit LLC.",
+            "thanks": "Confirmation de l’envoi de votre message à TerraHit LLC.",
             "legal": "Mentions légales du site TerraHit LLC.",
             "privacy": "Informations sur le traitement des données personnelles par TerraHit LLC.",
         },
@@ -175,6 +190,7 @@ COPY = {
         "home": {
             "eyebrow": "COMMERCE B2B ALGÉRIE–EUROPE",
             "h1": "Votre passerelle opérationnelle entre l’Algérie et l’Europe",
+            "h1_lines": ["Votre passerelle opérationnelle", "entre l’Algérie et l’Europe"],
             "lead": "TerraHit coordonne fournisseurs, acheteurs, documentation et partenaires logistiques afin que chaque intervenant dispose d’une vision claire de l’opération.",
             "primary": "Présenter votre opération",
             "secondary": "Découvrir nos services",
@@ -237,8 +253,17 @@ COPY = {
             "message": "Détails de l’opération",
             "message_help": "Produit, origine, destination, volume estimé et calendrier souhaité.",
             "submit": "Envoyer la demande",
+            "sending": "Envoi en cours…",
+            "error": "Votre message n’a pas pu être envoyé. Réessayez ou écrivez à contact@terrahitb2b.com.",
             "privacy_note": "TerraHit utilise les informations fournies uniquement pour étudier votre demande et vous répondre.",
             "privacy_link": "Consulter la politique de confidentialité",
+        },
+        "thanks": {
+            "h1": "Merci pour votre message",
+            "intro": "Votre demande a bien été transmise à TerraHit.",
+            "message": "Nous allons examiner les informations communiquées et vous contacter si des précisions sont nécessaires.",
+            "home": "Retour à l’accueil",
+            "contact": "Envoyer une autre demande",
         },
         "legal": {
             "h1": "Mentions légales",
@@ -275,12 +300,13 @@ COPY = {
         "menu": "القائمة",
         "languages": "اللغات",
         "nav": {"home": "الرئيسية", "about": "من نحن", "services": "خدماتنا", "contact": "اتصل بنا", "legal": "إشعار قانوني", "privacy": "الخصوصية"},
-        "titles": {"home": "TerraHit LLC — تنسيق التجارة بين الجزائر وأوروبا", "about": "من نحن — TerraHit LLC", "services": "خدمات تنسيق التجارة — TerraHit LLC", "contact": "اتصل بـ TerraHit LLC", "legal": "الإشعار القانوني — TerraHit LLC", "privacy": "سياسة الخصوصية — TerraHit LLC"},
+        "titles": {"home": "TerraHit LLC — تنسيق التجارة بين الجزائر وأوروبا", "about": "من نحن — TerraHit LLC", "services": "خدمات تنسيق التجارة — TerraHit LLC", "contact": "اتصل بـ TerraHit LLC", "thanks": "شكراً لرسالتك — TerraHit LLC", "legal": "الإشعار القانوني — TerraHit LLC", "privacy": "سياسة الخصوصية — TerraHit LLC"},
         "descriptions": {
             "home": "تنسق TerraHit عمليات التجارة بين الشركات في الجزائر وأوروبا، بما يشمل التواصل مع الموردين والوثائق التجارية والشحن والمتابعة التشغيلية.",
             "about": "تعرّف على دور TerraHit LLC في تنسيق عمليات تجارية موثوقة وشفافة بين الجزائر وأوروبا.",
             "services": "تنسيق الموردين والوثائق والخدمات اللوجستية والمتابعة التشغيلية للتجارة بين الجزائر وأوروبا.",
             "contact": "اعرض مشروع الاستيراد أو التصدير بين الجزائر وأوروبا على TerraHit LLC.",
+            "thanks": "تأكيد إرسال رسالتك إلى TerraHit LLC.",
             "legal": "الإشعار القانوني لموقع TerraHit LLC.",
             "privacy": "كيفية معالجة TerraHit LLC للبيانات الشخصية المقدمة عبر موقعها.",
         },
@@ -289,6 +315,7 @@ COPY = {
         "home": {
             "eyebrow": "التجارة بين الشركات — الجزائر وأوروبا",
             "h1": "جسرك التشغيلي بين الجزائر وأوروبا",
+            "h1_lines": ["جسرك التشغيلي", "بين الجزائر وأوروبا"],
             "lead": "تنسق TerraHit بين الموردين والمشترين والوثائق والشركاء اللوجستيين، بما يضمن وضوح العملية لجميع الأطراف.",
             "primary": "اعرض عمليتك",
             "secondary": "اكتشف خدماتنا",
@@ -332,8 +359,17 @@ COPY = {
             "message": "تفاصيل العملية",
             "message_help": "المنتج والمنشأ والوجهة والحجم التقريبي والموعد المطلوب.",
             "submit": "إرسال الطلب",
+            "sending": "جارٍ الإرسال…",
+            "error": "تعذر إرسال رسالتك. حاول مرة أخرى أو راسل contact@terrahitb2b.com.",
             "privacy_note": "تستخدم TerraHit المعلومات المقدمة فقط لدراسة طلبك والرد عليه.",
             "privacy_link": "اطلع على سياسة الخصوصية",
+        },
+        "thanks": {
+            "h1": "شكراً لرسالتك",
+            "intro": "تم إرسال طلبك إلى TerraHit بنجاح.",
+            "message": "سنراجع المعلومات المقدمة ونتواصل معك إذا احتجنا إلى تفاصيل إضافية.",
+            "home": "العودة إلى الصفحة الرئيسية",
+            "contact": "إرسال طلب آخر",
         },
         "legal": {
             "h1": "الإشعار القانوني",
@@ -416,7 +452,7 @@ def base_page(lang: str, page: str, body: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escape(c['titles'][page])}</title>
   <meta name="description" content="{escape(c['descriptions'][page])}">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content="{'noindex,follow' if page == 'thanks' else 'index,follow,max-image-preview:large'}">
   <link rel="canonical" href="{canonical(lang, page)}">
   {language_links(page)}
   <meta property="og:type" content="website">
@@ -428,7 +464,7 @@ def base_page(lang: str, page: str, body: str) -> str:
   <meta name="theme-color" content="#1C2B49">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon_512x512.png?v=4">
-  <link rel="stylesheet" href="/assets/styles.css?v=4">
+  <link rel="stylesheet" href="/assets/styles.css?v=5">
   {json_ld}
 </head>
 <body>
@@ -436,7 +472,7 @@ def base_page(lang: str, page: str, body: str) -> str:
   {header(lang, page)}
   <main id="main">{body}</main>
   {footer(lang)}
-  <script src="/assets/site.js?v=4" defer></script>
+  <script src="/assets/site.js?v=5" defer></script>
 </body>
 </html>
 '''
@@ -444,9 +480,10 @@ def base_page(lang: str, page: str, body: str) -> str:
 
 def home_body(lang: str) -> str:
     c = COPY[lang]["home"]
+    title = "".join(f'<span class="title-line">{escape(line)}</span>' for line in c["h1_lines"])
     benefits = "".join(f'<article class="benefit"><span aria-hidden="true">✓</span><h2>{escape(t)}</h2><p>{escape(p)}</p></article>' for t, p in c["benefits"])
     process = "".join(f'<article class="step"><span>{n}</span><h3>{escape(t)}</h3><p>{escape(p)}</p></article>' for n, t, p in c["process"])
-    return f'''<section class="hero"><div class="hero-copy"><p class="eyebrow">{escape(c['eyebrow'])}</p><h1>{escape(c['h1'])}</h1><p class="hero-lead">{escape(c['lead'])}</p><div class="actions"><a class="button" href="{href(lang,'contact')}">{escape(c['primary'])}</a><a class="text-link" href="{href(lang,'services')}">{escape(c['secondary'])} →</a></div></div><div class="hero-orbit" aria-hidden="true"><div class="globe-lines"></div><span class="route route-one"></span><span class="route route-two"></span><span class="route route-three"></span></div></section>
+    return f'''<section class="hero"><div class="hero-copy"><p class="eyebrow">{escape(c['eyebrow'])}</p><h1>{title}</h1><p class="hero-lead">{escape(c['lead'])}</p><div class="actions"><a class="button" href="{href(lang,'contact')}">{escape(c['primary'])}</a><a class="text-link" href="{href(lang,'services')}">{escape(c['secondary'])} →</a></div></div><div class="hero-orbit" aria-hidden="true"><div class="globe-lines"></div><span class="route route-one"></span><span class="route route-two"></span><span class="route route-three"></span></div></section>
 <section class="promise"><div><p class="eyebrow">TerraHit LLC</p><h2>{escape(c['promise_title'])}</h2></div><p>{escape(c['promise'])}</p></section>
 <section class="benefits-grid">{benefits}</section>
 <section class="section process-section"><div class="section-heading"><p class="eyebrow">PROCESS</p><h2>{escape(c['process_title'])}</h2></div><div class="process-grid">{process}</div></section>
@@ -474,7 +511,24 @@ def services_body(lang: str) -> str:
 def contact_body(lang: str) -> str:
     c = COPY[lang]["contact"]
     opts = "".join(f'<option value="{escape(v)}">{escape(label)}</option>' for v, label in c["options"])
-    return page_header(c["h1"], c["intro"]) + f'''<section class="section contact-layout"><aside class="contact-card"><h2>{escape(c['info'])}</h2><dl><dt>Email</dt><dd><a href="mailto:contact@terrahitb2b.com">contact@terrahitb2b.com</a></dd><dt>{escape(c['hq'])}</dt><dd>Albuquerque, New Mexico<br>United States</dd><dt>{escape(c['operations'])}</dt><dd>{escape(c['operations_value'])}</dd></dl></aside><form class="contact-form" action="https://usebasin.com/f/3b9ec06003b5" method="post"><div class="form-row"><div class="field"><label for="full-name">{escape(c['name'])}</label><input id="full-name" name="full_name" type="text" autocomplete="name" required></div><div class="field"><label for="company">{escape(c['company'])}</label><input id="company" name="company" type="text" autocomplete="organization"></div></div><div class="field"><label for="email">{escape(c['email'])}</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="operation-type">{escape(c['type'])}</label><select id="operation-type" name="operation_type"><option value="">{escape(c['select'])}</option>{opts}</select></div><div class="field"><label for="message">{escape(c['message'])}</label><textarea id="message" name="message" rows="7" aria-describedby="message-help" required></textarea><small id="message-help">{escape(c['message_help'])}</small></div><input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="button" type="submit">{escape(c['submit'])}</button><p class="form-privacy">{escape(c['privacy_note'])} <a href="{href(lang,'privacy')}">{escape(c['privacy_link'])}</a>.</p></form></section>'''
+    return page_header(c["h1"], c["intro"]) + f'''<section class="section contact-layout">
+  <aside class="contact-card"><h2>{escape(c['info'])}</h2><dl><dt>Email</dt><dd><a href="mailto:contact@terrahitb2b.com">contact@terrahitb2b.com</a></dd><dt>{escape(c['hq'])}</dt><dd>Albuquerque, New Mexico<br>United States</dd><dt>{escape(c['operations'])}</dt><dd>{escape(c['operations_value'])}</dd></dl></aside>
+  <form class="contact-form" action="https://usebasin.com/f/3b9ec06003b5" method="post" data-success-url="{href(lang,'thanks')}" data-sending-label="{escape(c['sending'])}" data-error-message="{escape(c['error'])}">
+    <div class="form-row"><div class="field"><label for="full-name">{escape(c['name'])}</label><input id="full-name" name="full_name" type="text" autocomplete="name" required></div><div class="field"><label for="company">{escape(c['company'])}</label><input id="company" name="company" type="text" autocomplete="organization"></div></div>
+    <div class="field"><label for="email">{escape(c['email'])}</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="operation-type">{escape(c['type'])}</label><select id="operation-type" name="operation_type"><option value="">{escape(c['select'])}</option>{opts}</select></div>
+    <div class="field"><label for="message">{escape(c['message'])}</label><textarea id="message" name="message" rows="7" aria-describedby="message-help" required></textarea><small id="message-help">{escape(c['message_help'])}</small></div>
+    <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="button" type="submit">{escape(c['submit'])}</button>
+    <p class="form-status" role="status" aria-live="polite" hidden></p>
+    <p class="form-privacy">{escape(c['privacy_note'])} <a href="{href(lang,'privacy')}">{escape(c['privacy_link'])}</a>.</p>
+  </form>
+</section>'''
+
+
+def thanks_body(lang: str) -> str:
+    c = COPY[lang]["thanks"]
+    return f'''<section class="thank-you"><div class="thank-you-card"><div class="success-mark" aria-hidden="true">✓</div><p class="eyebrow">TerraHit LLC</p><h1>{escape(c['h1'])}</h1><p class="thank-you-intro">{escape(c['intro'])}</p><p>{escape(c['message'])}</p><div class="actions thank-you-actions"><a class="button" href="{href(lang,'home')}">{escape(c['home'])}</a><a class="text-link" href="{href(lang,'contact')}">{escape(c['contact'])}</a></div></div></section>'''
 
 
 def long_body(lang: str, page: str) -> str:
@@ -495,10 +549,11 @@ def main() -> None:
         write_page(lang, "about", about_body(lang))
         write_page(lang, "services", services_body(lang))
         write_page(lang, "contact", contact_body(lang))
+        write_page(lang, "thanks", thanks_body(lang))
         write_page(lang, "legal", long_body(lang, "legal"))
         write_page(lang, "privacy", long_body(lang, "privacy"))
 
-    urls = [canonical(lang, page) for lang in LANGS for page in PAGES]
+    urls = [canonical(lang, page) for lang in LANGS for page in PAGES if page != "thanks"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f'  <url><loc>{u}</loc></url>\n' for u in urls) + '</urlset>\n'
     (ROOT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
 

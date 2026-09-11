@@ -18,4 +18,33 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') close();
   });
+
+  const form = document.querySelector('.contact-form[data-success-url]');
+  if (!form) return;
+
+  const submit = form.querySelector('[type="submit"]');
+  const status = form.querySelector('.form-status');
+  const submitLabel = submit.textContent;
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    submit.disabled = true;
+    submit.textContent = form.dataset.sendingLabel;
+    status.hidden = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error('Submission failed');
+      window.location.assign(form.dataset.successUrl);
+    } catch (error) {
+      status.textContent = form.dataset.errorMessage;
+      status.hidden = false;
+      submit.disabled = false;
+      submit.textContent = submitLabel;
+    }
+  });
 })();

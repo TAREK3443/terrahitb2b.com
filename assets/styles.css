@@ -42,10 +42,11 @@ h1, .page-hero h1 { font-family: Georgia, "Times New Roman", serif; font-weight:
 .button:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #f2bf50; outline-offset: 3px; }
 .button-small { min-height: 42px; padding: .65rem .9rem; font-size: .9rem; }
 .button-light { background: #fff; color: var(--green); }
-.hero { min-height: 760px; padding: 150px max(2rem, calc((100vw - var(--max))/2)) 80px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); align-items: center; gap: 5rem; overflow: hidden; background: radial-gradient(circle at 80% 30%, rgba(45,124,49,.12), transparent 34%), linear-gradient(135deg,#f9fafb,#e8edf3); }
+.hero { min-height: 760px; padding: 150px max(2rem, calc((100vw - var(--max))/2)) 80px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(260px, .5fr); align-items: center; gap: 3rem; overflow: hidden; background: radial-gradient(circle at 80% 30%, rgba(45,124,49,.12), transparent 34%), linear-gradient(135deg,#f9fafb,#e8edf3); }
 .hero-copy { max-width: 720px; }
 .eyebrow { margin-bottom: 1rem; color: var(--green); font-weight: 800; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; }
-.hero h1 { margin-bottom: 1.5rem; font-size: clamp(3rem, 6vw, 5.4rem); }
+.hero h1 { margin-bottom: 1.5rem; font-size: clamp(3.1rem, 4.6vw, 4.7rem); }
+.title-line { display: block; white-space: nowrap; }
 .hero-lead { max-width: 680px; margin-bottom: 2rem; color: #4e5b70; font-size: clamp(1.05rem, 2vw, 1.28rem); }
 .actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
 .text-link { color: var(--navy); font-weight: 700; text-decoration: none; }
@@ -108,7 +109,14 @@ h1, .page-hero h1 { font-family: Georgia, "Times New Roman", serif; font-weight:
 .field input, .field select, .field textarea { width: 100%; padding: .8rem .9rem; border: 1px solid #aab3bf; border-radius: 8px; background: #fff; color: var(--ink); font: inherit; }
 .field small { display: block; margin-top: .35rem; color: var(--muted); }
 .form-privacy { margin: 1rem 0 0; color: var(--muted); font-size: .85rem; }
+.form-status { margin: 1rem 0 0; padding: .75rem 1rem; border-inline-start: 4px solid #b23b3b; background: #fff1f1; color: #7c2525; }
 .honeypot { position: absolute !important; left: -9999px !important; }
+.thank-you { min-height: 720px; padding: 160px 1rem 80px; display: grid; place-items: center; background: radial-gradient(circle at 50% 30%, rgba(45,124,49,.12), transparent 38%), linear-gradient(135deg,#f9fafb,#e8edf3); }
+.thank-you-card { width: min(680px, 100%); padding: 3.5rem; text-align: center; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.success-mark { width: 68px; height: 68px; margin: 0 auto 1.5rem; display: grid; place-items: center; border-radius: 50%; background: rgba(45,124,49,.12); color: var(--green); font-size: 2rem; font-weight: 900; }
+.thank-you-card h1 { margin-bottom: 1rem; font-size: clamp(2.3rem,5vw,3.8rem); }
+.thank-you-intro { color: var(--navy); font-size: 1.2rem; font-weight: 700; }
+.thank-you-actions { justify-content: center; margin-top: 2rem; }
 .legal-copy { width: min(900px, calc(100% - 2rem)); margin: auto; padding: 4rem 0; }
 .legal-copy section { padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
 .legal-copy h2 { font-size: 1.25rem; }
@@ -140,17 +148,24 @@ h1, .page-hero h1 { font-family: Georgia, "Times New Roman", serif; font-weight:
   .footer-brand { margin: auto; }
   .footer-links { justify-content: center; }
 }
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-copy { max-width: none; }
+  .hero-orbit { width: min(360px, 70vw); }
+}
 @media (max-width: 560px) {
   .nav-shell { min-height: 74px; }
   .brand img { width: 104px; }
   .nav-panel { top: 74px; }
   .hero { padding: 125px 1rem 70px; }
   .hero h1 { font-size: 2.8rem; }
+  .title-line { white-space: normal; }
   .promise { margin-top: -32px; padding: 1.5rem; gap: 1.2rem; }
   .benefits-grid { margin-block: 3.5rem; }
   .scope { padding: 2rem 1.4rem; }
   .values-grid, .form-row { grid-template-columns: 1fr; }
   .page-hero { padding: 135px 1rem 55px; }
   .contact-card, .contact-form, .service-card { padding: 1.4rem; }
+  .thank-you-card { padding: 2rem 1.4rem; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
